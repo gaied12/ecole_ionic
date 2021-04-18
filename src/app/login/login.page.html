@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/images/epi-school.png">
+  <form [formGroup]="fL">
+  <ion-item lines="full">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="text" required formControlName="email"></ion-input>
+    <div class="error" *ngIf="this.fL.get('email').hasError('required')&& this.fL.get('email').touched"> remplir le champ </div>
+    <div class="error" *ngIf="this.fL.get('email').hasError('Invalid')&& this.fL.get('email').touched"> Veuillez fournir une adresse email valide </div>
+
+
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" required formControlName="password"></ion-input>
+    <div class="error" *ngIf="this.fL.get('password').hasError('required')&& this.fL.get('password').touched"> remplir le champ </div>
+
+  </ion-item>
+
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="danger" expand="block" (click)="auth()">Connexion</ion-button>
+    <ion-button [routerLink]="['/register']" type="submit" color="danger" expand="block">Inscription</ion-button>
+
+      <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+    </ion-col>
+  </ion-row>
+</form>
+
+</ion-content>

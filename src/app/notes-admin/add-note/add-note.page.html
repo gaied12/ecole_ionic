@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ACTUALITES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+
+    <ion-segment>
+        <a routerLink='/consult-notes'>
+          <ion-segment-button >
+            <i class="fas fa-calendar-week"></i>
+     Consulter les Actualités
+      </ion-segment-button>
+    </a>
+     <ion-segment-button >
+      <i class="fas fa-calendar-plus"></i>
+      Ajouter Actualités
+      </ion-segment-button>
+      
+       </ion-segment>
+  </ion-toolbar>
+  <ion-item>
+    <ion-label>Type d'actualites</ion-label>
+    <ion-select placeholder="Select One" [(ngModel)]="x" (ngModelChange)="changeType($event)">
+      <ion-select-option value="c">Communiqué</ion-select-option>
+      <ion-select-option value="e">Evénement </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <form [formGroup]="fNote" *ngIf="this.x!=null">
+  
+  
+   
+    
+    <ion-item lines="full">
+      <ion-label position="floating">Titre note</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+      <p class="error" *ngIf="this.fNote.get('title').hasError('required') && this.fNote.get('title').touched">Remplir le champ</p>
+    </ion-item>
+   
+    <ion-item lines="full">
+      <ion-label position="floating"></ion-label>
+    <ion-input type="file"  (change)="getFile($event)" ></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea rows="6" cols="20" placeholder="..." formControlName="desc"></ion-textarea>
+    <p class="error" *ngIf="this.fNote.get('desc').hasError('required') && this.fNote.get('desc').touched">Remplir le champ</p>
+  </ion-item>
+
+    <ion-item *ngIf="this.x=='c'" >
+      <ion-label>select levels</ion-label>
+
+    <ion-select multiple="true" formControlName="levels"           >
+          <ion-select-option  *ngFor="let level of levels" [value]="level.id">{{level.name}}</ion-select-option>
+    
+   </ion-select>
+   </ion-item>
+  
+  <ion-list style="text-align:center">
+  
+  <a [routerLink]="['/add-note']"><img type="submit" (click)=" add()"src="assets/images/checked.png"></a>
+    </ion-list>
+  
+  </form>
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>sanction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+
+    <ion-segment>
+      <ion-segment-button routerLink='/student-register'>
+        <i class="fas fa-user-plus"></i> Inscription
+      </ion-segment-button>
+     
+  <ion-segment-button routerLink='/consulter-stud'>
+    <i class="fas fa-users-cog" ></i>
+    Consulter 
+</ion-segment-button>
+<ion-segment-button  >
+  <i class="fas fa-balance-scale"></i>  sanction 
+</ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <form [formGroup]="fS">
+    <ion-item lines="full">
+      <ion-label position="floating">Matricule Fils</ion-label>
+      <ion-input type="text" formControlName="matStud"></ion-input>
+      <div class="succes" *ngIf="!this.fS.get('matStud').hasError('InvalidMat')&& this.fS.get('matStud').touched && this.fS.get('matStud').value.length =='8'"> {{infoStud()}} </div>
+
+      <div class="error" *ngIf="this.fS.get('matStud').hasError('required')&& this.fS.get('matStud').touched"> remplir le champ </div>
+
+
+</ion-item>
+<ion-item lines="full">
+
+  <ion-label>Type de sanction </ion-label>
+
+<ion-select  formControlName="idSacntion">
+
+      <ion-select-option *ngFor="let sanction of listSanctions"[value]="sanction.id">{{sanction.type}}</ion-select-option>
+</ion-select>
+</ion-item>
+<ion-item lines="full">
+  <ion-label position="floating">Description</ion-label>
+  <ion-textarea rows="6" cols="20" placeholder="..." formControlName="desc"></ion-textarea>
+  <p class="error" *ngIf="this.fS.get('desc').hasError('required') && this.fS.get('desc').touched">Remplir le champ</p>
+</ion-item>
+<ion-list style="text-align:center">
+  <div *ngIf="this.fS.valid">
+  <a   [routerLink]="['/sanction']"><img  type="submit" (click)="addSanc()"src="assets/images/checked.png"></a>
+</div>
+    </ion-list>
+
+
+  </form>
+
+</ion-content>

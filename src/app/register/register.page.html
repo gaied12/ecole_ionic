@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/images/epi-school.png">
+  <form  [formGroup]="fR">
+   
+    <ion-item lines="full">
+      <ion-label position="floating">Matricule Fils</ion-label>
+      <ion-input type="text" formControlName="matStud"></ion-input>
+      <div class="error" *ngIf="this.fR.get('matStud').hasError('InvalidMat')"> verifier matricule </div>
+      <div class="succes" *ngIf="!this.fR.get('matStud').hasError('InvalidMat')&& this.fR.get('matStud').touched && this.fR.get('matStud').value.length =='8'"> {{infoStud()}} </div>
+
+      <div class="error" *ngIf="this.fR.get('matStud').hasError('required')&& this.fR.get('matStud').touched"> remplir le champ </div>
+
+
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Prenom</ion-label>
+      <ion-input type="text" required formControlName="firstName"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input type="text" required formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" required formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-input type="number" required formControlName="phoneNum"></ion-input>
+    </ion-item>
+
+
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" required formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Confirmer Password</ion-label>
+      <ion-input type="password" required formControlName="rPassword"></ion-input>
+      <div class="error" *ngIf="this.fR.get('rPassword').hasError('confirmedValidator')"> verifier le Mot de passe </div>
+      <div class="error" *ngIf="this.fR.get('rPassword').hasError('required')&& this.fR.get('rPassword').touched"> remplir le champ </div>
+
+
+    </ion-item>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" (click)="add()" [disabled]='this.fR.invalid' >Inscription</ion-button>
+        
+      </ion-col>
+    </ion-row>
+    </form>
+
+</ion-content>
+

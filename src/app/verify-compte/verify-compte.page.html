@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+      <ion-item >
+  
+        <p class="error">veuillez consulter votre email </p>
+
+        <ion-label position="floating">Code de Confirmation</ion-label>
+        <ion-input type="text" [(ngModel)]="code" ></ion-input>
+
+      </ion-item>
+      <a routerLink='/verify-compte' class="small-text" (click)="genCode()">Générer un autre code</a>
+      <ion-list style="text-align:center">
+  
+        <a><img type="submit" (click)=" register()"src="assets/images/checked.png"></a>
+          </ion-list>
+   
+
+
+</ion-content>

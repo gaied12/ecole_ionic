@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ELEVES <br>ABSENCES</ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content>
+ 
+  
+      <ion-item lines="full">
+      <ion-label>Nom et prenom :{{stud?.firstName}} {{stud?.lastName}}</ion-label>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label>Classe: {{stud?.level?.name}} </ion-label>
+    </ion-item>
+
+     
+  
+  
+  <form [formGroup]="fAbs">
+    <ion-item>
+      <ion-label>Debut de seance</ion-label>
+      <ion-datetime  formControlName="start" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>fin de seance</ion-label>
+      <ion-datetime  formControlName="end" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label >Date de seance</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY" formControlName="date" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label >Matiere</ion-label>
+      <ion-select formControlName="mat" >
+        <ion-select-option *ngFor="let sub of subjects" [value]="sub.id">{{sub.name}}</ion-select-option>
+       
+       </ion-select>
+        </ion-item>
+        <ion-list style="text-align:center">
+
+          <a ><img type="submit" (click)="addAbs()" src="assets/images/checked.png"></a>
+            </ion-list>
+      
+    
+
+  </form>
+
+</ion-content>

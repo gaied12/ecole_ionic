@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ENSEIGNANT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+
+    <ion-segment>
+      <ion-segment-button >
+        <i class="fas fa-user-plus"></i> Consulter Enseignant
+      </ion-segment-button>
+     
+  <ion-segment-button routerLink='/add-prof' >
+    <i class="fas fa-users-cog" ></i>
+   Ajouter Enseignant 
+</ion-segment-button>
+
+    </ion-segment>
+  </ion-toolbar>
+  <div class="table-responsive">
+    <div class="table-title">
+      <div class="row">
+        </div>
+    </div>
+
+<table class="table table-striped table-hover table-bordered"   >
+
+
+
+
+<tr >
+ 
+  <th>nom prenom</th>
+  <th>Matiére</th>
+  <th>Emploi de temps</th>
+  <th>Configuration Enseignant </th>
+</tr>
+
+<tr>
+  <td >  </td> 
+  <td ></td>
+  <td>
+
+    <a   class="view" title="Download" data-toggle="tooltip" ><i  class="fas fa-download"></i></a>
+    
+          <a  class="view" title="Info"  data-toggle="tooltip"><i class="fas fa-info"></i></a>						
+            <a   class="delete" title="Supprimer"   data-toggle="tooltip"><i   class="fas fa-trash-alt"></i></a>
+
+          
+        </td>
+ <td>
+  <a class="view"><i class="fas fa-info"></i></a>
+  <a class="add"><i class="fas fa-plus"></i></a>
+ </td>
+
+
+
+  
+
+</tr>
+
+
+</table>
+</div>
+
+
+
+
+
+</ion-content>

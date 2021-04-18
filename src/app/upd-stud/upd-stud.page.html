@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>upd-stud</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="fStudent" >
+    <ion-item lines="full">
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+  
+    <ion-item lines="full">
+      <ion-label position="floating">Prenom</ion-label>
+      <ion-input type="text" formControlName="lastName" ></ion-input>
+    </ion-item>
+  
+   
+  
+    <ion-item>
+      <ion-label position="floating">Date de naissance</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY " formControlName="dateBirth" ></ion-datetime>
+    </ion-item>
+    
+  
+    <!-- Radio buttons -->
+    <ion-radio-group lines="full" formControlName="sexe"  >
+      <ion-list-header>
+        <ion-label>sexe</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>homme</ion-label>
+        <ion-radio slot="start"  value="homme" ></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Femme</ion-label>
+        <ion-radio slot="start" value="femme" ></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  
+    
+    <ion-item>
+      <ion-label>Niveau</ion-label>
+      <ion-select formControlName="aclass" >
+        <ion-select-option *ngFor="let clas of class"  [value]="clas.name"   >{{clas.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+  
+    <ion-row>
+      <ion-col>
+        <img class="img" src="assets/images/check.png" (click)="updStud()">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+   
+    </ion-row>
+
+  </form>
+
+</ion-content>

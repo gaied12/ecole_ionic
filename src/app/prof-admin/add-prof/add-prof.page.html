@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ENSEIGNANT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+
+    <ion-segment>
+      <ion-segment-button  routerLink='/consult-prof'>
+        <i class="fas fa-user-plus"></i> Consulter Enseignant
+      </ion-segment-button>
+     
+  <ion-segment-button  >
+    <i class="fas fa-users-cog" ></i>
+   Ajouter Enseignant 
+</ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+    <form [formGroup]="fP">
+    <ion-item lines="full">
+      <ion-label position="floating">Prenom</ion-label>
+      <ion-input type="text" required formControlName="firstName"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input type="text" required formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" required formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-input type="number" required formControlName="phoneNum"></ion-input>
+    </ion-item>
+
+
+      <ion-item lines="full">
+
+    <ion-label>Matiére</ion-label>
+  
+  <ion-select  formControlName="idSubject">
+  
+        <ion-select-option *ngFor="let subject of listSub"[value]="subject .id">{{subject.name}}</ion-select-option>
+  </ion-select>
+  </ion-item>
+  <ion-list style="text-align:center">
+  
+    <a [routerLink]="['/add-prof']"><img type="submit" (click)=" add()"src="assets/images/checked.png"></a>
+      </ion-list>
+  
+
+</form>
+
+
+</ion-content>

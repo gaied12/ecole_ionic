@@ -1,0 +1,19 @@
+.error{
+    color:#d63031;
+    font-family: Georgia, serif;
+    font-size: 12px;
+
+}
+ion-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.my-grid {
+    height: 50% !important;
+ }
+.parent-row {
+    height:70% !important;
+    align-items: center !important;
+    justify-content: center !important;
+ }
