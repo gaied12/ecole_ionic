@@ -20,4 +20,23 @@ export class SubService {
     return this.http.post<any>(this.base_url+'/add/Abs',x);
 
   }
+  public allProf():Observable<any[]>{
+    return this.http.get<any[]>(this.base_url+'get/all/prof');
+
+
+  }
+  addEmp(x:File,idClas:string,title:string,desc:string):Observable<any>{
+    let params =new FormData();
+    params.append('file',x );
+    params.append('idProf',idClas);
+    params.append('title',title);
+    params.append('desc',desc);
+
+    return this.http.post<any>(this.base_url+'add/table/prof',params)
+
+  }
+  delEmp(id:number){
+    return this.http.delete(this.base_url+`/delete/table/prof/${id}`);
+   }
+
 }

@@ -1,0 +1,58 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+ion-segment-button {
+  --background-checked: var(#e2e7ec);
+  --color-checked: var(--ion-color-primary-contrast);
+  --indicator-color: transparent;
+  --color:#e2e7ec;
+}
+
+
+
+i{
+  color: #e2e7ec;
+  font-size: 24px;
+  text-align: center;
+
+
+}
+ion-toolbar{
+  text-align: center;
+
+
+
+}
+
+.vertical-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.img{
+  border-radius: 50% !important;
+  overflow: hidden;
+width:224px;
+height: 224px;
+
+  }
+  .fileInput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.fileInput   label {
+    color: #717171;
+    background-color: white;
+    display: inline-block;
+    cursor: pointer;
+    padding: .5em 1em;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+

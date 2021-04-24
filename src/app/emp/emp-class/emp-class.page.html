@@ -1,29 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>emp-class</ion-title>
+    <ion-title>emploi de temps</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
- 
+
   <form [formGroup]="fTab">
-  <ion-label  position="floating">Slectionner une classe</ion-label>
-  <ion-select  okText="Ok" cancelText="Annuler" formControlName="classId">
-
-    <ion-select-option *ngFor="let clas of class" value="{{clas.id}}" >{{clas.name}}</ion-select-option>
-
-    
-  </ion-select>
-  <p class="error" *ngIf="this.fTab.get('classId').hasError('required') && this.fTab.get('classId').touched">veuillez sélectionner une classe</p>
 
 
-  
+
+
   <ion-item lines="full">
     <ion-label position="floating">Title Emploi de temps</ion-label>
     <ion-input type="text" formControlName="title"></ion-input>
     <p class="error" *ngIf="this.fTab.get('title').hasError('required') && this.fTab.get('title').touched">Remplir le champ</p>
   </ion-item>
- 
+
   <ion-item lines="full">
     <ion-label position="floating"></ion-label>
   <ion-input type="file"  (change)="getFile($event)" formControlName="file"></ion-input>
@@ -37,7 +30,7 @@
 </ion-item>
 <ion-list style="text-align:center">
 
-<a routerLink="/emp-class"><img type="submit" (click)="add(this.fTab.get('classId').value)" src="assets/images/check-file.png"></a>
+<a [routerLink]="['/emp-class',this.fTab.get('classId').value]"><img type="submit" (click)="add()" src="assets/images/check-file.png"></a>
   </ion-list>
 
 </form>

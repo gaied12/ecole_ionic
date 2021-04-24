@@ -28,5 +28,8 @@ newDate:Date;
     })
 
   }
- 
+  down(x:any) {
+    window.location.href=x
+  }
+
 }

@@ -18,7 +18,7 @@ export class StudentService {
   constructor(private http:HttpClient) { }
   allClass():Observable<Class[]> {
     return this.http.get<Class[]>(this.base_url+'all/class');
-    
+
   }
   getStud(id:string):Observable<Student>{
     return this.http.get<Student>(this.base_url+`student/${id}`);
@@ -52,11 +52,11 @@ getAbsByStud(id:string):Observable<any[]>{
 }
 getAbsByDate(id:string,date:string):Observable<any[]>{
   let params = new HttpParams();
- 
+
   params=params.append('date', date);
   params=params.append('id',id);
-  
-  
+
+
 
   return this.http.get<any[]>(this.base_url+`all/AbsByDate`, {params: params});
 }
@@ -77,6 +77,30 @@ getAllsanc():Observable<any>{
 }
 addSanc(data:any):Observable<any>{
   return this.http.post<any>(this.base_url+'add/sanction',data);
+}
+allSonByParent(id:number):Observable<any[]>{
+  return this.http.get<any[]>(this.base_url+`stud/all/${id}`);
+
+
+
+}
+updImg(file:File, id:string):Observable<any>{
+  var data=new FormData();
+  data.append('img', file);
+  data.append('id',id);
+
+  return this.http.post<any>(this.base_url+'stud/img',data);
+
+
+
+}
+allProfbyLevel(id:number):Observable<any[]>{
+
+  return this.http.get<any[]>(this.base_url+`get/prof/${id}`);
+}
+allSancbyStudent(id:string):Observable<any[]>{
+
+  return this.http.get<any[]>(this.base_url+`all/sanction/stud/${id}`);
 }
 
 

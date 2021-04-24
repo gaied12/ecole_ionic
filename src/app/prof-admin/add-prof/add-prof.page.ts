@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth-service/auth.service';
 import { Router } from '@angular/router';
+import { ClassService } from 'src/app/class-service/class.service';
+import { StudentService } from 'src/app/service-student/student.service';
 
 @Component({
   selector: 'app-add-prof',
@@ -13,18 +15,20 @@ import { Router } from '@angular/router';
 export class AddProfPage implements OnInit {
 fP:FormGroup;
 listSub:any[]=[];
-  constructor(private fb:FormBuilder,private alert:AlertController,private sub:SubService,private auth:AuthService ,private router:Router) {
+listLevels:any[]=[]
+  constructor(private fb:FormBuilder,private alert:AlertController,private sub:SubService,private auth:AuthService ,private router:Router,private classService:StudentService) {
     this.fP = fb.group({
       firstName: ['',Validators.required],
       lastName: ['',Validators.required],
       email: ['',Validators.required],
-      idSubject:[+'',Validators.required],
+      subjectId:[+'',Validators.required],
+      levelId: [+'',Validators.required],
       phoneNum:['',Validators.required]
 
     })
    }
    async add() {
-  
+
     const alert = await this.alert.create({
       message: 'vous voulez Ajouter cet  Ensignant',
       buttons: [
@@ -45,13 +49,18 @@ this.addProf()  ;}
     this.sub.allSub().subscribe(result=>{
       this.listSub=result;
     })
+    this.classService.allClass().subscribe(result=>{
+
+      this.listLevels=result;
+      console.log(this.listLevels)
+    })
   }
   addProf(){
     console.log(this.fP.value)
 
-    this.auth.addProf(this.fP.value).subscribe(result=>{
+   this.auth.addProf(this.fP.value).subscribe(result=>{
       console.log(result)
-      this.router.navigate(['/consult-prof'])
+    //  this.router.navigate(['/consult-prof'])
 
 
 

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>emploi de temps</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="fTab">
+
+
+
+
+  <ion-item lines="full">
+    <ion-label position="floating">Title Emploi de temps</ion-label>
+    <ion-input type="text" formControlName="title"></ion-input>
+    <p class="error" *ngIf="this.fTab.get('title').hasError('required') && this.fTab.get('title').touched">Remplir le champ</p>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating"></ion-label>
+  <ion-input type="file"  (change)="getFile($event)" formControlName="file"></ion-input>
+  <p class="error"*ngIf="this.fTab.get('file').hasError('required') && this.fTab.get('file').touched" >veuillez sélectionner un fichier</p>
+</ion-item>
+<ion-item lines="full">
+  <ion-label position="floating">Description</ion-label>
+  <ion-textarea rows="6" cols="20" placeholder="..." formControlName="desc"></ion-textarea>
+  <p class="error" *ngIf="this.fTab.get('desc').hasError('required') && this.fTab.get('desc').touched">Remplir le champ</p>
+
+</ion-item>
+<ion-list style="text-align:center">
+
+<a [routerLink]="['/emp-prof',this.fTab.get('idProf').value]"><img type="submit" (click)="add()" src="assets/images/check-file.png"></a>
+  </ion-list>
+
+</form>
+
+</ion-content>

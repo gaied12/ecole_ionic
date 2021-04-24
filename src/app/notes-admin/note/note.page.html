@@ -5,9 +5,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-toolbar color="light">  
+  <ion-toolbar color="light">
   <div class="date">{{ note?.dateCreation | date :'MMM d, y, h:mm a'}}</div>
-  </ion-toolbar>  
+  </ion-toolbar>
   <ion-card>
     <div  text-center *ngIf="this.note?.imageUser!==null">
       <img class="img" [src]="this.image">
@@ -16,24 +16,24 @@
     <ion-label  >Type Actualité :{{note?.type}}</ion-label>
   </ion-item>
     <form >
-  
-  
-  
-     
+
+
+
+
       <ion-item lines="full">
         <ion-label position="floating" >Titre Actualité</ion-label>
         <ion-input type="text" value="{{note?.title}}"  [(ngModel)]="title" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
-     
+
       <ion-item lines="full">
         <ion-label position="floating"></ion-label>
       <ion-input type="file" title="Choose a video please" [(ngModel)]="f" [ngModelOptions]="{standalone: true}" (change)="fileUpload($event)"> </ion-input>
-      
+
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Description</ion-label>
       <ion-textarea rows="6" cols="20" placeholder="..."   [(ngModel)]="desc" [ngModelOptions]="{standalone: true}"value="{{note?.description}}"></ion-textarea>
-    
+
     </ion-item>
     <ion-item lines="full">
       <ion-label *ngIf="this.note?.file!==null&& this.note?.imageUser==null||this.note?.file==null&& this.note?.imageUser==null " > Nom Du Fichier : {{ fileVerif(f?.name)}}<i *ngIf="this.note?.file==null" class="fas fa-times-circle"></i></ion-label>
@@ -46,7 +46,7 @@
       <ion-button color="primary"  (click)="upd()" >Modifier</ion-button>
     <ion-button color="danger"  (click)="del(note?.id)">Supprimer </ion-button>
       </ion-list>
-   </form> 
+   </form>
   </ion-card>
 
 </ion-content>

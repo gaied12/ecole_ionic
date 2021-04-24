@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fils</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar color="light">
+    <div class="date">Rendez-vous</div>
+    </ion-toolbar>
+   <form [formGroup]="fM">
+    <ion-item>
+      <ion-label position="floating">Choisir un date</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY" formControlName="date" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Heure</ion-label>
+      <ion-datetime displayFormat="HH:mm A" formControlName="time" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Choisir un Enseignant</ion-label>
+      <ion-select formControlName="profId">
+
+        <ion-select-option *ngFor="let prof of profs"[value]="prof.id">{{prof.firstName}} {{prof.lastName}}</ion-select-option>
+
+
+  </ion-select>
+    </ion-item>
+  </form>
+    <ion-list style="text-align:center">
+
+     <img type="submit" (click)=" add()"src="assets/images/checked.png">
+
+        </ion-list>
+
+
+
+</ion-content>

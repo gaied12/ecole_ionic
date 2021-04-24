@@ -9,7 +9,7 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
- 
+
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
@@ -32,7 +32,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
 
   },
-  
+
   {
     path: 'upd-stud/:id',
     loadChildren: () => import('./upd-stud/upd-stud.module').then( m => m.UpdStudPageModule),
@@ -46,14 +46,14 @@ const routes: Routes = [
 
   },
   {
-    path: 'emp-class',
+    path: 'emp-class/:id',
     loadChildren: () => import('./emp/emp-class/emp-class.module').then( m => m.EmpClassPageModule),
     canActivate: [AuthGuardService]
 
   },
   {
     path: 'del-emp',
-    loadChildren: () => import('./emp/del-emp/del-emp.module').then( m => m.DelEmpPageModule),  
+    loadChildren: () => import('./emp/del-emp/del-emp.module').then( m => m.DelEmpPageModule),
       canActivate: [AuthGuardService]
 
   },
@@ -136,6 +136,46 @@ const routes: Routes = [
     loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule),
     canActivate: [AuthGuardService]
 
+  },
+  {
+    path: 'emp-prof/:id',
+    loadChildren: () => import('./emp-prof/emp-prof.module').then( m => m.EmpProfPageModule)
+  },
+  {
+    path: 'add-fils',
+    loadChildren: () => import('./add-fils/add-fils.module').then( m => m.AddFilsPageModule)
+  },
+  {
+    path: 'consult-fils',
+    loadChildren: () => import('./consult-fils/consult-fils.module').then( m => m.ConsultFilsPageModule)
+  },
+  {
+    path: 'sanction-stud/:id',
+    loadChildren: () => import('./sanction-stud/sanction-stud.module').then( m => m.SanctionStudPageModule)
+  },
+  {
+    path: 'absence-stud/:id',
+    loadChildren: () => import('./absence-stud/absence-stud.module').then( m => m.AbsenceStudPageModule)
+  },
+  {
+    path: 'info-stud/:id',
+    loadChildren: () => import('./info-stud/info-stud.module').then( m => m.InfoStudPageModule)
+  },
+  {
+    path: 'profil-stud/:id',
+    loadChildren: () => import('./profil-stud/profil-stud.module').then( m => m.ProfilStudPageModule)
+  },
+  {
+    path: 'metting-parent/:id/:studId',
+    loadChildren: () => import('./metting-parent/metting-parent.module').then( m => m.MettingParentPageModule)
+  },
+  {
+    path: 'note-parent',
+    loadChildren: () => import('./note-parent/note-parent.module').then( m => m.NoteParentPageModule)
+  },
+  {
+    path: 'parent-note/:id',
+    loadChildren: () => import('./parent-note/parent-note.module').then( m => m.ParentNotePageModule)
   }
 ];
 

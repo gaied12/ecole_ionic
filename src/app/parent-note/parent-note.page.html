@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar color="light">
+    <div class="date">{{note?.dateCreation| date :'MMM d, y, h:mm a'}}</div>
+
+    </ion-toolbar>
+    <div class="title" >{{note?.title}}</div>
+<div class="file" *ngIf="note?.file!==null">
+  <i class="fas fa-file-pdf" (click)="down(note?.file?.fileUrl)"></i>
+  </div>
+
+    <ion-card  >
+
+      <div class="vertical-center">
+      <ion-img class="img"*ngIf="note?.imageUser?.picByte" [src]="getImg(note?.imageUser?.picByte)"></ion-img>
+      </div>
+
+      <div >{{note?.description}}</div>
+
+
+
+
+    </ion-card>
+
+</ion-content>

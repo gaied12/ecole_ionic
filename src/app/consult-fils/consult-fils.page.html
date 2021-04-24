@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fils</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+
+    <ion-segment>
+      <ion-segment-button  >
+        <i class="fas fa-users-cog" ></i>
+        Consulter Fils
+    </ion-segment-button>
+      <ion-segment-button routerLink='/add-fils'>
+        <i class="fas fa-user-plus"></i> Ajouter fils
+      </ion-segment-button>
+
+
+
+    </ion-segment>
+    </ion-toolbar>
+    <ion-card *ngFor="let son of listSon">
+      <div class="vertical-center">
+        <input
+        type="file"
+        name="file"
+        id="file"
+        class="fileInput"/>
+       <label for="file">
+
+        <a [routerLink]="['/profil-stud',son.id]"><ion-img  *ngIf="son.imageUser==null" src="assets/images/user.jpg"  class="ion-align-self-end" title="change me"></ion-img></a>
+        <a [routerLink]="['/profil-stud',son.id]"> <ion-img  *ngIf="son.imageUser!==null" [src]="getImg(son.imageUser.picByte)"  class="img" title="change me" ></ion-img></a></label>
+
+
+
+
+
+    </div>
+    <ion-item>
+
+
+<h6>  {{son?.firstName}}       {{son?.lastName}}    </h6>
+
+    </ion-item>
+
+        <ion-item>
+
+          <a [routerLink]="['/sanction-stud',son.id]">    <h6> Sanction  <img src="assets/images/law.png">    </h6></a>
+
+              </ion-item>
+
+          <ion-item>
+
+
+     <a [routerLink]="['/info-stud',son.level.id]">  <h6>Notes D'info <img src="assets/images/results.png"> </h6></a>
+
+
+      </ion-item>
+      <ion-item>
+      <a [routerLink]="['/absence-stud',son.id]"> <h6>Absences</h6></a>
+
+      </ion-item>
+      <ion-item>
+        <h6>Emploi de Temps <img src="assets/images/file.png" (click)="down(son?.level.timeTable.file.fileUrl)"></h6>
+      </ion-item>
+      <ion-item>
+        <a [routerLink]="['/metting-parent',son.level.id,son.id]"> <h6>Prendre rendez-vous</h6></a>
+
+        </ion-item>
+    </ion-card>
+
+    </ion-content>

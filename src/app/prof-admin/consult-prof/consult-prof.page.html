@@ -11,10 +11,10 @@
       <ion-segment-button >
         <i class="fas fa-user-plus"></i> Consulter Enseignant
       </ion-segment-button>
-     
+
   <ion-segment-button routerLink='/add-prof' >
     <i class="fas fa-users-cog" ></i>
-   Ajouter Enseignant 
+   Ajouter Enseignant
 </ion-segment-button>
 
     </ion-segment>
@@ -31,33 +31,42 @@
 
 
 <tr >
- 
+
   <th>nom prenom</th>
   <th>Matiére</th>
   <th>Emploi de temps</th>
   <th>Configuration Enseignant </th>
 </tr>
 
-<tr>
-  <td >  </td> 
-  <td ></td>
+<tr *ngFor="let prof of listProf" >
+  <td > {{prof.firstName}} {{prof.lastName}} </td>
   <td>
+  <ion-item *ngFor="let sub of prof.subject" no-lines>
+{{sub.name}}
+</ion-item>
+</td>
+  <td>
+    <a   [routerLink]="['/emp-prof',prof.id]" *ngIf="prof.timeTable==null" class="Add"><i class="fas fa-plus"></i></a>
 
-    <a   class="view" title="Download" data-toggle="tooltip" ><i  class="fas fa-download"></i></a>
-    
-          <a  class="view" title="Info"  data-toggle="tooltip"><i class="fas fa-info"></i></a>						
-            <a   class="delete" title="Supprimer"   data-toggle="tooltip"><i   class="fas fa-trash-alt"></i></a>
+    <a  class="delete" *ngIf="prof.timeTable==null" title="aucun emploi de temps" ><i class="fas fa-minus-circle"></i> </a>
+          <a [routerLink]="['/consult-emp',prof.timeTable.id]" *ngIf="prof.timeTable!==null" class="view" title="Info" ><i class="fas fa-info"></i></a>
+            <a   routerLink='/consult-prof' *ngIf="prof.timeTable!==null" class="delete" title="Supprimer" (click)="del(prof.id)" ><i class="fas fa-trash-alt"></i></a>
 
-          
+
+
         </td>
  <td>
   <a class="view"><i class="fas fa-info"></i></a>
-  <a class="add"><i class="fas fa-plus"></i></a>
+  <a   class="delete" title="Supprimer"   data-toggle="tooltip"><i   class="fas fa-trash-alt"></i></a>
+  <a    class="edit"><i class="fas fa-user-edit"></i></a>
+
+
+
  </td>
 
 
 
-  
+
 
 </tr>
 

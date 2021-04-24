@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Evenement de l'ecole </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card *ngFor="let note of listNotes" >
+    <a [routerLink]="['/parent-note',note.id]">
+
+    <div class="vertical-center">
+    <ion-img class="img" [src]="getImg(note?.imageUser?.picByte)"></ion-img>
+    </div>
+  </a>
+    <div class="card-title " >{{note.title}}</div>
+    <div >{{note.description}}</div>
+
+
+
+
+  </ion-card>
+
+
+
+</ion-content>

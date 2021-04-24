@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actualités de classe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let note of listNotes" >
+    <a [routerLink]="['/parent-note',note.id]">
+
+
+
+    <div class="card-title " >{{note.title}}</div>
+    <div >{{note.description}}</div>
+  </a>
+
+
+
+
+  </ion-card>
+
+
+</ion-content>

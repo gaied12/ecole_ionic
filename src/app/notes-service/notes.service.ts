@@ -16,14 +16,14 @@ export class NotesService {
    return this.http.get<any[]>(this.base_url+`get/note/level/${id}`);
   }
   addNote(f:File,type:string,des:string,title:string,id:string[]):Observable<any>{
-  
+
     var formData = new FormData();
     formData.append('type',type);
-  
+
     formData.append('des',des);
     formData.append('file',f);
     formData.append('title',title);
-    for (let i = 0; i < id.length; i++) {    
+    for (let i = 0; i < id.length; i++) {
       formData.append('levelsId',id[i]);
     }
     return this.http.post<any>(this.base_url+'add/notes',formData);
@@ -33,14 +33,14 @@ export class NotesService {
 
   }
   getNotes():Observable<any[]>{
-    
+
 
     return this.http.get<any[]>(this.base_url+`get/all/note`);
 
 
   }
   getNoteByDate(date:string):Observable<any[]>{
-    
+
 
     return this.http.get<any[]>(this.base_url+`get/note/date?date=${date}`);
 
@@ -59,6 +59,14 @@ export class NotesService {
     formData.append('file',f);
     formData.append('title',title);
     return this.http.put<any>(this.base_url + `update/note/${id}`,formData);
+
+
+  }
+  allEvent():Observable<any[]>{
+    return this.http.get<any[]>(this.base_url + `all/event`);
+  }
+  allCom(id:number):Observable<any[]>{
+    return this.http.get<any[]>(this.base_url + `get/note/level/${id}`);
 
 
   }
