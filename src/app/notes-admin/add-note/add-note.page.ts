@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { ClassService } from 'src/app/class-service/class.service';
 import { NotesService } from 'src/app/notes-service/notes.service';
 import { StudentService } from 'src/app/service-student/student.service';
@@ -18,7 +18,12 @@ id:any;
 x:any;
 levels:any[]=[];
 
-  constructor(private router:ActivatedRoute,private fb:FormBuilder,private alert:AlertController,private service:NotesService,private serviceL:StudentService ) {
+  constructor(private router:ActivatedRoute,private fb:FormBuilder,private alert:AlertController,private service:NotesService,private serviceL:StudentService,private menu:MenuController) {
+    this.menu.enable(false,'prof');
+    this.menu.enable(true,'second');
+    this.menu.enable(false,'first');
+
+
     this.serviceL.allClass().subscribe(res=>{
       this.levels=res;
       console.log(this.levels);
@@ -26,7 +31,7 @@ levels:any[]=[];
 
     this.id=this.router.snapshot.paramMap.get('id');
     console.log(this.id);
-  this.fNote=  this.fb.group({ 
+  this.fNote=  this.fb.group({
     title : ['', Validators.compose([
       Validators.required
      ]),
@@ -57,7 +62,7 @@ levels:any[]=[];
 
 
     }
-    
+
     const alert = await this.alert.create({
       cssClass: 'my-custom-class',
       header: 'Ajouter Actualités',
@@ -81,7 +86,7 @@ this.service.addNote(this.f,this.fNote.get('desc').value,this.fNote.get('title')
 
   console.log(res);
   window.location.href=`http://localhost:8100/consult-notes/${this.id}`;
-  
+
 })*/
 console.log(this.fNote.get('levels').value)
 console.log(this.x);

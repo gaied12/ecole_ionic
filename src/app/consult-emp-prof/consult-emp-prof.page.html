@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Emploi de temps </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar color="light">
+    <div class="date">{{datePub| date:'MMM d, y'	}}</div>
+    </ion-toolbar>
+    <div class="title" >{{emp?.title}}</div>
+<div class="file" >
+  <i class="fas fa-file-pdf" (click)="down(emp?.file?.fileUrl)"></i>
+  </div>
+
+    <ion-card  >
+
+      <div >{{emp?.desc}}</div>
+
+
+
+
+    </ion-card>

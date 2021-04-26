@@ -1,27 +1,11 @@
-a {
-  color: #e2e7ec;
-  text-decoration: none;
+font{
+  font-weight: bold;
+  color:red;
+  size:16px;
 }
-ion-segment-button {
-  --background-checked: var(#e2e7ec);
-  --color-checked: var(--ion-color-primary-contrast);
-  --indicator-color: transparent;
-  --color:#e2e7ec;
-}
-
-
-
-i{
-  color: #e2e7ec;
-  font-size: 24px;
-  text-align: center;
-
-
-}
-ion-toolbar{
-  text-align: center;
-
-
+.down{
+height: 16px;
+widows: 16px;
 
 }
 body {
@@ -93,15 +77,11 @@ table.table td a {
 table.table td a.view {
   color: #03A9F4;
 }
-table.table td a.Add {
-color: #27ae60;
-}
-table.table td a.edit {
-color:#f1c40f;
-}
-
 table.table td a.add {
   color:#44bd32;
+}
+table.table td a.edit {
+  color: #FFC107;
 }
 table.table td a.delete {
   color: #E34724;
@@ -146,37 +126,30 @@ table.table td i {
   margin-top: 6px;
   font-size: 95%;
 }
-.error{
-  color:#d63031;
-  font-family: Georgia, serif;
-  font-size: 12px;
-
+a {
+  color: #e2e7ec;
+  text-decoration: none;
 }
-.errors{
-  color:#d63031;
-  font-family: Georgia, serif;
+ion-segment-button {
+  --background-checked: var(#e2e7ec);
+  --color-checked: var(--ion-color-primary-contrast);
+  --indicator-color: transparent;
+  --color:#e2e7ec;
+}
+
+
+
+i{
   font-size: 24px;
+  text-align: center;
 
 
 }
-ion-card{
-	text-align: center;
-	align-content: center;
-	align-self: center;
+ion-toolbar{
+  text-align: center;
+
+
+
 }
-.img{
-  border-radius: 50% !important;
-  overflow: hidden;
-width:124px;
-height: 124px;
-
-  }
-  .vertical-center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
 
 

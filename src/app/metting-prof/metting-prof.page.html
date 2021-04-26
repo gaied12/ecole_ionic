@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rendez-vous</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar color="light">
+    <div class="date"></div>
+    </ion-toolbar>
+
+
+    <div  style="overflow-x:auto">
+			<div class="table-responsive">
+				<div class="table-wrapper">
+					<div class="table-title">
+						<div class="row">
+              </div>
+              <ion-item>
+                <ion-label>choisir une Classe</ion-label>
+                <ion-select [(ngModel)]="levelId" (ngModelChange)="serachByLevel($event)" >
+                    <ion-select-option [value]="level.id" *ngFor="let level of  listofLevel">{{level.name}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+          </div>
+
+
+
+					<table class="table table-striped table-hover table-bordered" scrollX="true">
+						<thead>
+							<tr>
+                <th> nom de l'élève</th>
+                <th>Classe </th>
+
+                <th>Nom de Parent </th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Filtrer</th>
+
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr  *ngFor="let met of  filterlist">
+                <td>{{ met?.son?.firstName}} {{ met?.son?.lastName}}</td>
+                <td>{{ met?.son?.level?.name }}</td>
+                <td>{{ met?.parent?.firstName}} {{ met?.parent?.lastName}}</td>
+                <td>{{ met?.date}} </td>
+                <td>{{ met?.time}} </td>
+                <td>
+                  <a class="add" title="Ajouter un emploi de temps a cette classe" data-toggle="tooltip" > <i (click)="accept(met?.id)" class="fas fa-check"></i> </a>
+                  <a class="delete" title="aucun emploi de temps" data-toggle="tooltip"><i (click)="cancel(met?.id)"class="fas fa-times"></i> </a>
+           </td>
+
+
+
+
+
+
+
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                </div>
+                </div>

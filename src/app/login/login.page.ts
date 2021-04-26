@@ -12,7 +12,7 @@ import { AuthService } from '../auth-service/auth.service';
 })
 export class LoginPage implements OnInit {
   fL:FormGroup;
-  
+
 
   constructor(private menu: MenuController,private fb:FormBuilder,private login:AuthService,private alert:AlertController,private router:Router) {
     this.fL=this.fb.group({
@@ -20,9 +20,15 @@ export class LoginPage implements OnInit {
      password:['',
       Validators.required
       ]})
-  
+this.menu.close('first');
+this.menu.close('second');
+this.menu.close('prof');
+
     this.menu.enable(false,'first');
     this.menu.enable(false,'second');
+    this.menu.enable(false,'prof');
+
+
 
    }
    ValidateEmail() : ValidatorFn{
@@ -42,20 +48,20 @@ export class LoginPage implements OnInit {
   return null;
    }
 
-    
-    
+
+
   }
   async Alert() {
     const alert = await this.alert.create({
       cssClass: 'my-custom-class',
-     
+
       message: 'Email ou le mot de passe est incorrect .',
       buttons: ['OK']
     });
 
     await alert.present();
 
-  
+
   }
 
 
@@ -65,16 +71,16 @@ export class LoginPage implements OnInit {
 
 
 
-   
+
 
   ngOnInit() {
     if (localStorage.getItem('user')!=null){
       let user = localStorage.getItem('user');
       var x=JSON.parse(user);
-      if (x.role==='ADMIN'){    
+      if (x.role==='ADMIN'){
           this.router.navigate(['/home']);
     }
-    if (x.role==='PARENT'){    
+    if (x.role==='PARENT'){
       this.router.navigate(['/home-parent']);
 }
 
@@ -93,7 +99,7 @@ export class LoginPage implements OnInit {
         if(res.role==='ADMIN'){
           localStorage.setItem('user',JSON.stringify(res) )
 
-      
+
         this.router.navigate(['/home']);
         }
         if(res.role==='PARENT'){
@@ -102,14 +108,20 @@ export class LoginPage implements OnInit {
           this.router.navigate(['/home-parent']);
 
         }
+        if(res.role==='TEACHER'){
+          localStorage.setItem('user',JSON.stringify(res) )
+
+          this.router.navigate(['/home-prof']);
+
+        }
 
       }
-     
+
 
     })
 
 
   }
- 
+
 
 }

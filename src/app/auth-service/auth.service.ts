@@ -49,5 +49,10 @@ export class AuthService {
 
     return this.http.post<any>(this.base_url+'add/device',params)
   }
+  getUser(id:number):Observable<any>{
+    return this.http.get<any>(this.base_url+`get/user/${id}`)
+
+
+  }
 
 }

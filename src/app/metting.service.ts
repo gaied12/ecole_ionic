@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MettingService {
   base_url= environment.base_url;
 
@@ -16,4 +17,17 @@ export class MettingService {
 
 
   }
+ allMetting(id:number):Observable<any[]>{
+    return this.http.get<any[]>(this.base_url+`all/metting/prof/${id}`);
+
+  }
+  accptMett(id:number):Observable<any>{
+    return this.http.get<any>(this.base_url+`mett/confim/${id}`);
+
+  }
+  cancelMett(id:number):Observable<any>{
+    return this.http.get<any>(this.base_url+`mett/cancel/${id}`);
+
+  }
+
 }

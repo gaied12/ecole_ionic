@@ -176,6 +176,18 @@ const routes: Routes = [
   {
     path: 'parent-note/:id',
     loadChildren: () => import('./parent-note/parent-note.module').then( m => m.ParentNotePageModule)
+  },
+  {
+    path: 'home-prof',
+    loadChildren: () => import('./home-prof/home-prof.module').then( m => m.HomeProfPageModule)
+  },
+  {
+    path: 'consult-emp-prof',
+    loadChildren: () => import('./consult-emp-prof/consult-emp-prof.module').then( m => m.ConsultEmpProfPageModule)
+  },
+  {
+    path: 'metting-prof/:idProf',
+    loadChildren: () => import('./metting-prof/metting-prof.module').then( m => m.MettingProfPageModule)
   }
 ];
 

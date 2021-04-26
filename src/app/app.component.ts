@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 
 
 import { Platform, MenuController } from '@ionic/angular';
+import { AuthService } from './auth-service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import { Platform, MenuController } from '@ionic/angular';
 })
 export class AppComponent {
   Name:string;
+  user:any;
+  idUser:any;
 
   private sideMenuList: Array<object>;
 
@@ -18,6 +21,7 @@ export class AppComponent {
     private platform: Platform,
     private menu: MenuController,
     private oneSignal:OneSignal,
+    private service:AuthService
   ) {
     this.initializeApp();
   }
@@ -30,6 +34,16 @@ export class AppComponent {
 
 
     });
+    if(localStorage.getItem('user')!==null){
+
+
+    var user=  JSON.parse(localStorage.getItem('user'));
+    this.service.getUser(user.id).subscribe(user => {
+      this.user = user;
+      this.idUser = user.id;
+
+    })
+  }
 
   }
 

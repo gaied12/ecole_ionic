@@ -12,7 +12,24 @@ export class NoteParentPage implements OnInit {
 
   constructor(private noteService: NotesService,private menu: MenuController) {
     this.menu.enable(false,'second');
+   let user= JSON.parse(localStorage.getItem('user'))
+   if(user.role==='PARENT'){
     this.menu.enable(true,'first');
+
+    this.menu.enable(false,'prof');
+
+
+
+
+   }
+   if(user.role=='TEACHER'){
+    this.menu.enable(true,'prof');
+
+    this.menu.enable(false,'first');
+
+
+
+   }
 
    }
 

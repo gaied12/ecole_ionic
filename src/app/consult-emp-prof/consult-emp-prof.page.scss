@@ -1,0 +1,129 @@
+.date{
+  text-align: right;
+font-size:24px;
+color: black
+}
+.file{
+  text-align: right;
+  font-size:24px;
+  color: #E34724;
+
+
+}
+a{
+  font-size:50px;
+
+
+}
+
+.title{
+  text-align: center;
+font-size:24px;
+color: black
+
+
+}
+div{
+  align-items: center;
+
+
+}
+.img{
+  height: 70vh;
+  width: auto;
+  margin: auto;
+  display: block;
+  align-items: center;
+  margin:auto;
+
+
+}
+
+ion-toolbar{
+  text-align: center;
+  text-align: center;
+
+
+
+}
+.card-title {
+  color: #3d3d3d;
+  font-weight: bold;
+  font-size: 16px;
+ }
+
+ .card-subtitle {
+   color: #3d3d3d;
+   font-size: 16px;
+
+
+
+
+ }
+ .vertical-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+ .img{
+  text-align: center;
+  align-content: center;
+  align-self: center;
+overflow: hidden;
+width:224px;
+height: 224px;
+
+  }
+
+ .arr{
+     text-align: right;
+     font-size:24px;
+     color: black
+ }
+ .error{
+   color:#d63031;
+   font-family: Georgia, serif;
+   font-size: 12px;
+
+}
+
+ion-segment-button {
+   --background-checked: var(#e2e7ec);
+   --color-checked: var(--ion-color-primary-contrast);
+   --indicator-color: transparent;
+   --color:#e2e7ec;
+ }
+
+
+
+i{
+   color: #d63031;
+   font-size: 32px;
+
+
+}
+ion-toolbar{
+   text-align: center;
+   text-align: center;
+
+
+
+}
+#i{
+ color: red;
+ font-size: 24px;
+ text-align: center;
+
+}
+.cards{
+ display: block;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+}
+a {
+ color: black;
+ text-decoration: none;
+}
