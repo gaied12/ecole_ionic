@@ -12,7 +12,9 @@ export class LogoutPage implements OnInit {
 
   ngOnInit() {
     localStorage.clear();
-    this.router.navigate(['/login']);
+    window.location.href='/login';
+
+  //  this.router.navigate(['/login']);
 
   }
 

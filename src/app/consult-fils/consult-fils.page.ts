@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { StudentService } from '../service-student/student.service';
 
@@ -8,27 +9,21 @@ import { StudentService } from '../service-student/student.service';
   styleUrls: ['./consult-fils.page.scss'],
 })
 export class ConsultFilsPage implements OnInit {
-  id:number;
-  listSon:any[]=[];
+  son:any;
   file:File;
 
-  constructor(private menu: MenuController,private studservice:StudentService) {
+  constructor(private menu: MenuController,private studservice:StudentService,private route:ActivatedRoute) {
     this.menu.enable(true,'first')
     this.menu.enable(false,'second')
     var parent=JSON.parse(localStorage.getItem('user'));
-    this.id=parent.id;
 
 
    }
 
   ngOnInit() {
-    this.studservice.allSonByParent(this.id).subscribe(data => {
-      this.listSon=data;
-      console.log(this.listSon,this.listSon.length)
-
-
-
-
+    var idSon=this.route.snapshot.paramMap.get('id');
+    this.studservice.getStud(idSon).subscribe(data => {
+      this.son=data;
     })
   }
   down(x:any){

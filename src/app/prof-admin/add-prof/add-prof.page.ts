@@ -1,7 +1,7 @@
 import { SubService } from './../../sub-service/sub.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth-service/auth.service';
 import { Router } from '@angular/router';
 import { ClassService } from 'src/app/class-service/class.service';
@@ -16,7 +16,8 @@ export class AddProfPage implements OnInit {
 fP:FormGroup;
 listSub:any[]=[];
 listLevels:any[]=[]
-  constructor(private fb:FormBuilder,private alert:AlertController,private sub:SubService,private auth:AuthService ,private router:Router,private classService:StudentService) {
+  constructor(private fb:FormBuilder,private alert:AlertController,private sub:SubService,private auth:AuthService ,private router:Router,private classService:StudentService,private menu:MenuController ) {
+    this.menu.enable(true,'second')
     this.fP = fb.group({
       firstName: ['',Validators.required],
       lastName: ['',Validators.required],

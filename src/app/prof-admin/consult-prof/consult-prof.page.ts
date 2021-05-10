@@ -1,6 +1,6 @@
 import { SubService } from './../../sub-service/sub.service';
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-consult-prof',
@@ -10,7 +10,10 @@ import { AlertController } from '@ionic/angular';
 export class ConsultProfPage implements OnInit {
   listProf:any[]=[];
 
-  constructor(private service:SubService,private alert:AlertController) { }
+  constructor(private service:SubService,private alert:AlertController,private menu:MenuController) {
+    this.menu.enable(true,'second');
+
+   }
 
   ngOnInit() {
     this.service.allProf().subscribe(result=>{

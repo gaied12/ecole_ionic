@@ -1,10 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>emploi de temps</ion-title>
+    <ion-title>Enseignant</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-toolbar color="light">
+    <div class="date">Emploi de Temps</div>
+    </ion-toolbar>
+
 
   <form [formGroup]="fTab">
 
@@ -30,7 +34,7 @@
 </ion-item>
 <ion-list style="text-align:center">
 
-<a [routerLink]="['/emp-prof',this.fTab.get('idProf').value]"><img type="submit" (click)="add()" src="assets/images/check-file.png"></a>
+<a [routerLink]="['/emp-prof',this.fTab.get('idProf').value]"><img type="submit" (click)="add()" src="assets/images/checked.png"></a>
   </ion-list>
 
 </form>

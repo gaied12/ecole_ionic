@@ -1,7 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from 'src/app/service-student/student.service';
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { ClassService } from 'src/app/class-service/class.service';
 import { Class } from 'src/app/Model/class';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,7 +18,8 @@ export class EmpClassPage implements OnInit {
   f:File;
 
 
-  constructor(private service:StudentService,private clasSer:ClassService,private fb:FormBuilder,private alert:AlertController,private router:Router,private rou:ActivatedRoute) {
+  constructor(private service:StudentService,private clasSer:ClassService,private fb:FormBuilder,private alert:AlertController,private router:Router,private rou:ActivatedRoute,private menu:MenuController) {
+    this.menu.enable(true,'second');
     this.fTab=this.fb.group({
       classId : [this.rou.snapshot.paramMap.get('id'), Validators.compose([
       Validators.required,

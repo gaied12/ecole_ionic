@@ -1,4 +1,9 @@
 <ion-app>
+  <ion-buttons slot="start" *ngIf="this.logged==true">
+    <ion-menu-button   auto-hide="false" ></ion-menu-button>
+
+  </ion-buttons>
+
   <ion-menu class="my-custom-menu" maxEdgeStart="100" side="start" swipeGesture="true" menuId="first"
     content-id="main-content" (ionDidOpen)="ionDidOpen($event)" (ionDidClose)="ionDidClose($event)">
     <ion-header class="menu-header">
@@ -21,15 +26,14 @@
             Actualités</p> </a>
         </ion-item>
         <ion-item >
-          <a routerLink='/consult-fils'><p> <img src="assets/images/children.png" />
+          <a routerLink='/fils-selection'><p> <img src="assets/images/children.png" />
           Fils</p> </a>
         </ion-item>
 
         <ion-item >
-          <a routerLink=''><p> <img src="assets/images/profile.png" />
+          <a [routerLink]="['/profil',idUser]"><p> <img src="assets/images/profile.png" />
            Profil</p> </a>
         </ion-item>
-
         <ion-item >
           <a routerLink='/logout'><p> <img src="assets/images/logout.png" />
             Déconnexion</p> </a>
@@ -124,7 +128,7 @@ content-id="main-content" (ionDidOpen)="ionDidOpen($event)" (ionDidClose)="ionDi
        Rendez-vous</p> </a>
     </ion-item>
     <ion-item >
-      <a routerLink=''><p> <img src="assets/images/profile.png" />
+      <a [routerLink]="['/profil',idUser]"><p> <img src="assets/images/profile.png" />
        Profil</p> </a>
     </ion-item>
 

@@ -9,8 +9,8 @@
     <div class="date">{{datePub| date:'MMM d, y'	}}</div>
     </ion-toolbar>
     <div class="title" >{{emp?.title}}</div>
-<div class="file" >
-  <i class="fas fa-file-pdf" (click)="down(emp?.file?.fileUrl)"></i>
+<div class="file">
+  <i *ngIf="emp?.file?.fileUrl!==null"  class="fas fa-file-pdf" (click)="down(emp?.file?.fileUrl)"></i>
   </div>
 
     <ion-card  >

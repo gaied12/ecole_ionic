@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { ClassService } from 'src/app/class-service/class.service';
 
 @Component({
@@ -11,12 +12,23 @@ export class ConsultEmpPage implements OnInit {
 id:number;
 emp:any;
 newDate:Date;
+type:any='';
 
-  constructor(private rou:ActivatedRoute,private service:ClassService) { }
+  constructor(private rou:ActivatedRoute,private service:ClassService,private menu:MenuController) {
+    this.menu.enable(true,'second');
+
+   }
 
   ngOnInit() {
     this.id=+this.rou.snapshot.paramMap.get('id');
     console.log(this.id);
+    this.service.OwnerTtable(this.id).subscribe(data => {
+
+console.log(JSON.stringify(data) )
+      this.type = data;
+
+    })
+
     this.service.getEmp(this.id).subscribe(result =>{
       this.emp=result;
       var x=+this.emp.file.Datecreation.substr(3,2);

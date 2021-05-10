@@ -7,20 +7,18 @@
 <ion-content>
   <ion-item>
     <ion-label>Veuillez selectioner un niveau</ion-label>
-    <ion-select [(ngModel)]="clasId"  >
+    <ion-select [(ngModel)]="clasId" (ngModelChange)= StudbyLevel() >
       <ion-select-option *ngFor="let clas of class"   [value]="clas.id">
 
         {{clas.name}}
 
       </ion-select-option>
     </ion-select>
-    <ion-button (click)="getStudents()">
-      Valider
-    </ion-button>
+
   </ion-item>
   <p class="error" *ngIf="this.error==true && this.clasId==null">choisir un niveau</p>
 
- 
+
     <div class="table-responsive">
         <div class="table-title">
           <div class="row">
@@ -31,10 +29,10 @@
   <table *ngIf="this.students.length!=0 "class="table table-striped table-hover table-bordered"   >
 
 
-  
-    
+
+
     <tr *ngIf="this.students.length!=0" >
-     
+
       <th>Matricule</th>
       <th>nom et prenom</th>
       <th>date de Naissance</th>
@@ -46,16 +44,16 @@
       <th>Retard</th>
       <th>Moyenne Génerale</th>
 
-      
 
 
 
-    
-      
+
+
+
     </tr>
 
     <tr *ngFor="let stud of students" >
-      <td >  {{stud.id}}</td> 
+      <td >  {{stud.id}}</td>
       <td >{{stud.firstName}} {{stud.lastName}}</td>
       <td >{{stud.dateBirth | date}}</td>
       <td >{{stud.sexe}}</td>
@@ -68,15 +66,18 @@
       <a [routerLink]="['/all-abs',stud.id]"  class="view"><i class="fas fa-info"></i></a>
       <a [routerLink]="['/add-abs',stud.id]"   class="add"><i class="fas fa-plus"></i></a>
      </td>
-     <td></td>
+     <td> </td>
+     <td> </td>
 
 
-    
-      
-  
+
+
+
+
+
     </tr>
 
-  
+
   </table>
   </div>
 

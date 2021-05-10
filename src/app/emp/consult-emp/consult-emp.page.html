@@ -1,14 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title></ion-title>
+    <ion-title> {{type}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-toolbar color="light">
-    <div class="date">Date de publication : {{ newDate | date :'MMM d, y, h:mm a'}}</div>
+    <div class="center"> Emploi De Temps</div>
+  </ion-toolbar>
+
+  <ion-toolbar color="light">
+    <div class="date"> {{ newDate | date :'MMM d, y, h:mm a'}}</div>
+    <div class="file">
+      <i *ngIf="emp?.file?.fileUrl!==null"  class="fas fa-file-pdf" (click)="down(emp?.file?.fileUrl)"></i>
+      </div>
+
     </ion-toolbar>
+
   <ion-list>
-  <ion-item>
+    <ion-item>
+
     <ion-label>Titre: {{emp?.title}}</ion-label>
   </ion-item>
   <ion-item>
@@ -24,12 +34,4 @@
   </ion-list>
 
 
-  <ion-list style="text-align:center">
-
-    <a [routerLink]="['/consult-emp',id]"><img type="submit" (click)=" down(emp?.file?.fileUrl)"src="assets/images/download-file.png"></a>
-
-
-
-
-  </ion-list>
 </ion-content>

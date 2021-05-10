@@ -98,20 +98,22 @@ this.menu.close('prof');
       else{
         if(res.role==='ADMIN'){
           localStorage.setItem('user',JSON.stringify(res) )
+          window.location.href='/home';
 
 
-        this.router.navigate(['/home']);
+      //  this.router.navigate(['/home']);
         }
         if(res.role==='PARENT'){
           localStorage.setItem('user',JSON.stringify(res) )
-
-          this.router.navigate(['/home-parent']);
+window.location.href='/home-parent';
+          //this.router.navigate(['/home-parent']);
 
         }
         if(res.role==='TEACHER'){
           localStorage.setItem('user',JSON.stringify(res) )
+          window.location.href='/home-prof';
 
-          this.router.navigate(['/home-prof']);
+        // this.router.navigate(['/home-prof']);
 
         }
 
@@ -122,6 +124,7 @@ this.menu.close('prof');
 
 
   }
+
 
 
 }

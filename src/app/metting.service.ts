@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -27,6 +27,15 @@ export class MettingService {
   }
   cancelMett(id:number):Observable<any>{
     return this.http.get<any>(this.base_url+`mett/cancel/${id}`);
+
+  }
+  getMettingByParent(parentId:string,studId:string):Observable<any[]>{
+
+
+    let params =new HttpParams();
+    params=params.append('parentId',parentId);
+    params=params.append('studId',studId);
+    return this.http.get<any[]>(this.base_url+'all/metting/parent',{params:params});
 
   }
 

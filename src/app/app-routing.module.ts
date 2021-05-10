@@ -146,7 +146,7 @@ const routes: Routes = [
     loadChildren: () => import('./add-fils/add-fils.module').then( m => m.AddFilsPageModule)
   },
   {
-    path: 'consult-fils',
+    path: 'consult-fils/:id',
     loadChildren: () => import('./consult-fils/consult-fils.module').then( m => m.ConsultFilsPageModule)
   },
   {
@@ -188,6 +188,22 @@ const routes: Routes = [
   {
     path: 'metting-prof/:idProf',
     loadChildren: () => import('./metting-prof/metting-prof.module').then( m => m.MettingProfPageModule)
+  },
+  {
+    path: 'consult-metting-parent/:idParent',
+    loadChildren: () => import('./consult-metting-parent/consult-metting-parent.module').then( m => m.ConsultMettingParentPageModule)
+  },
+  {
+    path: 'parent-add-fils',
+    loadChildren: () => import('./parent-add-fils/parent-add-fils.module').then( m => m.ParentAddFilsPageModule)
+  },
+  {
+    path: 'fils-selection',
+    loadChildren: () => import('./fils-selection/fils-selection.module').then( m => m.FilsSelectionPageModule)
+  },
+  {
+    path: 'profil/:id',
+    loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
   }
 ];
 

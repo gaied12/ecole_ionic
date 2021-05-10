@@ -5,18 +5,19 @@ color: black
 }
 div{
     align-items: center;
-  
-  
+
+
   }
   .img{
-    height: 70vh;
-    width: auto;
+    max-width: 100%;
+    height: auto;
+
     margin: auto;
     display: block;
     align-items: center;
     margin:auto;
-    
-  
+
+
   }
   i{
     font-size: 24px;
@@ -25,4 +26,9 @@ div{
 
 
 }
-  
+ion-toolbar{
+  text-align: center;
+
+
+
+}

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Class } from '../Model/class';
 import { Student } from '../Model/student';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-consulter-stud',
@@ -12,48 +12,51 @@ import { AlertController } from '@ionic/angular';
 })
 export class ConsulterStudPage implements OnInit {
   class:Class[]=[];
-  clasId:number;   
-  students:any[]=[]   ;  
+  clasId:number;
+  students:any[]=[]   ;
   level:any;
   error=false;
 
 
-  constructor(private service:StudentService, private route:ActivatedRoute,private rou:Router,private alert:AlertController) {
+  constructor(private service:StudentService, private route:ActivatedRoute,private rou:Router,private alert:AlertController,private menu:MenuController) {
+    this.menu.enable(true,'second');
 
    }
   ngOnInit() {
 
     this.service.allClass().subscribe(res=> {
       this.class=res;
-    
-     
+
+
          });
-       
-       
 
 
-        
-         
 
 
-         
-     
+
+
+
+
+
+
 
   }
   deleteStud(x:string){
-   this.service.delteStudent(x).subscribe();
- window.location.reload();
+   this.service.delteStudent(x).subscribe(res =>{
 
-           
+    this.StudbyLevel();
+   });
+
+
+
   }
- 
+
   StudbyLevel(){
     this.service.getStudents(this.clasId).subscribe(res=> {
       this.students = res;
-      console.log(this.students);
-      
 
-      
+
+
     })
 
   }
@@ -66,17 +69,14 @@ export class ConsulterStudPage implements OnInit {
       this.service.getStudents(this.clasId).subscribe(res=> {
         this.students = res;
         console.log(this.students)
-  
+
       })
       this.getClass();
       console.log(this.level)
-  
+
 
     }
     console.log(this.error)
-    
-  }
-  refresh(){
 
   }
   getClass(){
@@ -96,7 +96,7 @@ export class ConsulterStudPage implements OnInit {
     if(x==0){
       return '#ff3838';
     }
-    else 
+    else
     return '#303952';
   }
   async del(x:string) {
@@ -108,7 +108,8 @@ export class ConsulterStudPage implements OnInit {
       buttons: [
         {text:'Confirmer',handler: () => {
 
-this.deleteStud(x)   }
+this.deleteStud(x);
+}
 },
         {text:'Annuler'},
 

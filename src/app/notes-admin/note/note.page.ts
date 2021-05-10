@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { NotesService } from 'src/app/notes-service/notes.service';
 
 @Component({
@@ -18,11 +18,12 @@ export class NotePage implements OnInit {
   image:any;
 
   note:any;
-  constructor(private route:ActivatedRoute,private service:NotesService,private alert:AlertController) {
+  constructor(private route:ActivatedRoute,private service:NotesService,private alert:AlertController,private menu:MenuController) {
+    this.menu.enable(true,'second')
     this.id =+this.route.snapshot.paramMap.get('id');
     console.log(this.id);
-    
-    
+
+
    }
 
   ngOnInit() {
@@ -40,7 +41,7 @@ export class NotePage implements OnInit {
         this.image = 'data:image/jpeg;base64,' + this.note.imageUser.picByte;
         console.log(this.image);
       }
-     
+
     } )
 
   }

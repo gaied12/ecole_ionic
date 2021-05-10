@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 
 import { Platform, MenuController } from '@ionic/angular';
 import { AuthService } from './auth-service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   Name:string;
   user:any;
   idUser:any;
+  logged:boolean=false;
 
   private sideMenuList: Array<object>;
 
@@ -21,9 +23,17 @@ export class AppComponent {
     private platform: Platform,
     private menu: MenuController,
     private oneSignal:OneSignal,
-    private service:AuthService
+    private service:AuthService,
+    private router:Router
   ) {
     this.initializeApp();
+    if(localStorage.getItem('user')!==null){
+      this.logged=true;
+    }
+    console.log(this.logged);
+
+
+
   }
   ngOnInit(): void {
     this.oneSignal.getIds().then(identity => {
@@ -34,7 +44,9 @@ export class AppComponent {
 
 
     });
+
     if(localStorage.getItem('user')!==null){
+
 
 
     var user=  JSON.parse(localStorage.getItem('user'));
@@ -42,8 +54,10 @@ export class AppComponent {
       this.user = user;
       this.idUser = user.id;
 
+
     })
   }
+
 
   }
 
@@ -99,6 +113,7 @@ export class AppComponent {
 
 
     }
+
 
 
 

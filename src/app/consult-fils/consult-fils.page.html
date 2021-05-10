@@ -5,22 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-toolbar>
-
-    <ion-segment>
-      <ion-segment-button  >
-        <i class="fas fa-users-cog" ></i>
-        Consulter Fils
-    </ion-segment-button>
-      <ion-segment-button routerLink='/add-fils'>
-        <i class="fas fa-user-plus"></i> Ajouter fils
-      </ion-segment-button>
-
-
-
-    </ion-segment>
-    </ion-toolbar>
-    <ion-card *ngFor="let son of listSon">
+    <ion-card>
       <div class="vertical-center">
         <input
         type="file"
@@ -29,8 +14,8 @@
         class="fileInput"/>
        <label for="file">
 
-        <a [routerLink]="['/profil-stud',son.id]"><ion-img  *ngIf="son.imageUser==null" src="assets/images/user.jpg"  class="ion-align-self-end" title="change me"></ion-img></a>
-        <a [routerLink]="['/profil-stud',son.id]"> <ion-img  *ngIf="son.imageUser!==null" [src]="getImg(son.imageUser.picByte)"  class="img" title="change me" ></ion-img></a></label>
+        <a [routerLink]="['/profil-stud',son?.id]"><ion-img  *ngIf="son?.imageUser==null" src="assets/images/user.jpg"  class="ion-align-self-end" title="change me"></ion-img></a>
+        <a [routerLink]="['/profil-stud',son?.id]"> <ion-img  *ngIf="son?.imageUser!==null" [src]="getImg(son?.imageUser?.picByte)"  class="img" title="change me" ></ion-img></a></label>
 
 
 
@@ -40,32 +25,32 @@
     <ion-item>
 
 
-<h6>  {{son?.firstName}}       {{son?.lastName}}    </h6>
+<h6> coordonnées  </h6>
 
     </ion-item>
 
         <ion-item>
 
-          <a [routerLink]="['/sanction-stud',son.id]">    <h6> Sanction  <img src="assets/images/law.png">    </h6></a>
+          <img src="assets/images/law.png">     <a [routerLink]="['/sanction-stud',son?.id]">    <h6> Sanction    </h6></a>
 
               </ion-item>
 
           <ion-item>
 
 
-     <a [routerLink]="['/info-stud',son.level.id]">  <h6>Notes D'info <img src="assets/images/results.png"> </h6></a>
+            <img src="assets/images/results.png">  <a [routerLink]="['/info-stud',son?.level?.id]">   <h6>Notes D'info </h6></a>
 
 
       </ion-item>
       <ion-item>
-      <a [routerLink]="['/absence-stud',son.id]"> <h6>Absences</h6></a>
+      <a [routerLink]="['/absence-stud',son?.id]"> <h6>Absences</h6></a>
 
       </ion-item>
       <ion-item>
-        <h6>Emploi de Temps <img src="assets/images/file.png" (click)="down(son?.level.timeTable.file.fileUrl)"></h6>
+        <img src="assets/images/file.png" (click)="down(son?.level?.timeTable?.file?.fileUrl)">  <h6>Emploi de Temps </h6>
       </ion-item>
       <ion-item>
-        <a [routerLink]="['/metting-parent',son.level.id,son.id]"> <h6>Prendre rendez-vous <img src="assets/images/meeting.png"></h6></a>
+        <img src="assets/images/meeting.png">  <a [routerLink]="['/metting-parent',son?.level?.id,son?.id]"> <h6>Rendez-vous </h6></a>
 
         </ion-item>
     </ion-card>

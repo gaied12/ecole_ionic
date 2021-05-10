@@ -20,12 +20,13 @@ export class UpdStudPage implements OnInit {
 
 
 
-  constructor(private fb:FormBuilder,private service:StudentService,private alert:AlertController,private menu:MenuController,private route:ActivatedRoute) { 
+  constructor(private fb:FormBuilder,private service:StudentService,private alert:AlertController,private menu:MenuController,private route:ActivatedRoute) {
+   this.menu.enable(true,'second');
     this.fStudent=this.fb.group({
       aclass : ['', Validators.compose([
         Validators.required,
        ]),
-      
+
       ],
       dateBirth : ['', Validators.compose([
         Validators.required
@@ -43,21 +44,21 @@ export class UpdStudPage implements OnInit {
         Validators.required
        ]),
       ]
-     
-      
-  
+
+
+
      });
      this.id = this.route.snapshot.paramMap.get('id');
      console.log(this.id);
 
   }
- 
+
 
   ngOnInit() {
     this.service.allClass().subscribe(res=> {
       this.class=res;
-     
-     
+
+
          });
          this.service.getStud(this.id).subscribe(res=>{
            this.stud=res;
@@ -66,8 +67,8 @@ console.log(this.fStudent.value);
 
          });
 
-         
-     
+
+
   }
   updStud(){
     this.service.updStud(this.id,this.fStudent.value).subscribe(res=>{

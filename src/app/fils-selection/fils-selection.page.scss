@@ -1,0 +1,84 @@
+ion-toolbar{
+  text-align: center;
+
+
+
+}
+.scroll-zoom-wrapper {
+  white-space: nowrap;
+}
+.card1{
+  display: flex;
+  justify-content: space-between;
+
+}
+ion-card {
+
+  font-size: 1.0em;
+  text-align: center;
+  position: relative;
+  top: 52%;
+   width: 100%;
+
+}
+
+div {
+  min-height: 160px;
+  height: auto;
+}
+
+      .scroll-content {
+      padding: 0px !important;
+  }
+  .img{
+    border-radius: 50% !important;
+    overflow: hidden;
+  width:64px;
+  height: 64px;
+
+    }
+    .route{
+      text-align: right;
+      font-size:32px;
+      color: #E34724;  }
+
+
+
+
+      i{
+        color: #e2e7ec;
+        font-size: 24px;
+        text-align: center;
+
+
+      }
+      ion-toolbar{
+        text-align: center;
+
+
+
+      }
+      ion-toolbar{
+        text-align: center;
+
+
+
+      }
+      ion-segment-button {
+        --background-checked: var(#e2e7ec);
+        --color-checked: var(--ion-color-primary-contrast);
+        --indicator-color: transparent;
+        --color:#e2e7ec;
+      }
+
+
+
+      i{
+        color: #e2e7ec;
+        font-size: 24px;
+        text-align: center;
+
+
+      }
+
+

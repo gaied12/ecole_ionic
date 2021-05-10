@@ -102,6 +102,15 @@ allSancbyStudent(id:string):Observable<any[]>{
 
   return this.http.get<any[]>(this.base_url+`all/sanction/stud/${id}`);
 }
+addSon(userId:any,studId:any):Observable<any>{
+  var data=new FormData();
+  data.append('userId',userId);
+  data.append('studId',studId);
+  return this.http.post<any>(this.base_url+'stud/parent',data);
+
+
+
+}
 
 
 

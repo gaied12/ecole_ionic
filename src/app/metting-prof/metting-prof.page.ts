@@ -54,7 +54,7 @@ this.mettService.accptMett(x).subscribe(data =>{
 })
   }
   cancel(x:any) {
-    this.mettService.accptMett(x).subscribe(data =>{
+    this.mettService.cancelMett(x).subscribe(data =>{
       console.log(data);
       this.allmett();
 

@@ -11,13 +11,7 @@ ion-segment-button {
 
 
 
-i{
-  color: #e2e7ec;
-  font-size: 24px;
-  text-align: center;
 
-
-}
 ion-toolbar{
   text-align: center;
 
@@ -38,14 +32,7 @@ width:256px;
 height: 256px;
 
   }
-  .fileInput {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-}
+
 ion-card{
 	text-align: center;
 	align-content: center;

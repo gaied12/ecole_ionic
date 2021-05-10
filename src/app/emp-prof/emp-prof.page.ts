@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { SubService } from '../sub-service/sub.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class EmpProfPage implements OnInit {
   x:any;
   f:File;
 
-  constructor(private fb:FormBuilder,private rou:ActivatedRoute,private alert:AlertController,private service:SubService) {
+  constructor(private fb:FormBuilder,private rou:ActivatedRoute,private alert:AlertController,private service:SubService,private menu:MenuController) {
+this.menu.enable(true,'second');
     this.fTab=this.fb.group({
       idProf : [this.rou.snapshot.paramMap.get('id'), Validators.compose([
       Validators.required,

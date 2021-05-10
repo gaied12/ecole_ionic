@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fils</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+
+    <ion-segment>
+      <ion-segment-button  routerLink='/fils-selection'  >
+        <i class="fas fa-users-cog"></i>
+        Consulter Fils
+    </ion-segment-button>
+      <ion-segment-button >
+        <i routerLink='parent-add-fils' class="fas fa-user-plus"></i> Ajouter fils
+      </ion-segment-button>
+
+
+
+    </ion-segment>
+    </ion-toolbar>
+
+  <form  [formGroup]="fSon">
+
+    <ion-item lines="full">
+      <ion-label position="floating">Matricule Fils</ion-label>
+      <ion-input type="text" formControlName="matStud"></ion-input>
+  <div class="succes" *ngIf="!this.fSon.get('matStud').hasError('InvalidMat')&& this.fSon.get('matStud').touched && this.fSon.get('matStud').value.length =='8'"> {{infoStud()}} </div>
+    </ion-item>
+    <ion-list style="text-align:center">
+
+      <a [routerLink]="['/parent-add-fils']"><img type="submit" (click)="add()" *ngIf="this.fSon.valid" src="assets/images/checked.png"></a>
+        </ion-list>
+
+
+  </form>
+
+
+</ion-content>

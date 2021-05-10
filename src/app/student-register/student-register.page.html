@@ -1,17 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button color="danger"></ion-back-button>
 
-      <ion-menu-button menu="first"  auto-hide="false"  (click)="openMenu()"></ion-menu-button>
-
-    </ion-buttons>
     <ion-title>ELEVE</ion-title>
   </ion-toolbar>
 </ion-header>
 
-  
-  
+
+
 <ion-content>
   <ion-toolbar>
 
@@ -19,13 +14,13 @@
       <ion-segment-button value="Add">
         <i class="fas fa-user-plus"></i> Inscription
       </ion-segment-button>
-     
+
   <ion-segment-button (click)="navigateTo()">
     <i class="fas fa-users-cog" ></i>
-    Consulter 
+    Consulter
 </ion-segment-button>
 <ion-segment-button routerLink='/sanction' >
-  <i class="fas fa-balance-scale"></i>  sanction 
+  <i class="fas fa-balance-scale"></i>  sanction
 </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -41,13 +36,13 @@
     <ion-input type="text" formControlName="lastName"></ion-input>
   </ion-item>
 
- 
+
 
   <ion-item>
     <ion-label position="floating">Date de naissance</ion-label>
     <ion-datetime displayFormat="MMM DD, YYYY" formControlName="dateBirth" ></ion-datetime>
   </ion-item>
-  
+
 
   <!-- Radio buttons -->
   <ion-radio-group lines="full" formControlName="sexe">
@@ -66,7 +61,7 @@
     </ion-item>
   </ion-radio-group>
 
-  
+
   <ion-item>
     <ion-label>Niveau</ion-label>
     <ion-select formControlName="aclass" >
@@ -75,13 +70,13 @@
   </ion-item>
 
 
- 
+
   <ion-list style="text-align:center">
 
     <a routerLink="/student-register"><img type="submit" (click)="addStud()" src="assets/images/checked.png"></a>
       </ion-list>
 </form>
 
-  
-  
+
+
 </ion-content>

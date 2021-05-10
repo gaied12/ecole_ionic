@@ -28,16 +28,6 @@ div{
 
 
 }
-.img{
-  height: 70vh;
-  width: auto;
-  margin: auto;
-  display: block;
-  align-items: center;
-  margin:auto;
-
-
-}
 
 ion-toolbar{
   text-align: center;
@@ -72,8 +62,8 @@ ion-toolbar{
   align-content: center;
   align-self: center;
 overflow: hidden;
-width:224px;
-height: 224px;
+height: 100%;
+width: 100%;
 
   }
 

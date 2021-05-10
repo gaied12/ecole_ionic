@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { StudentService } from '../service-student/student.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class ProfilStudPage implements OnInit {
   id:any;
   file:File;
 
-  constructor(private serviceStud:StudentService,private rou:ActivatedRoute) {
+  constructor(private serviceStud:StudentService,private rou:ActivatedRoute, private menu: MenuController) {
+    this.menu.enable(true,'first')
     this.id=this.rou.snapshot.paramMap.get('id');
     console.log(this.id)
    }

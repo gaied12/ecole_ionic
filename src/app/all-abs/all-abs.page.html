@@ -13,42 +13,42 @@
   <table *ngIf="this.absence.length!==0"class="table table-striped table-hover table-bordered"   >
 
 
-  
-    
+
+
     <tr >
-     
+
       <th>Matiere</th>
       <th>Début de séance </th>
       <th>Fin de séance</th>
       <th>Date</th>
       <th>Configuration Absence</th>
-     
-      
 
 
 
-    
-      
+
+
+
+
     </tr>
 
     <tr *ngFor="let abs of filterAbs" >
-      <td > {{abs?.subject?.name}} </td> 
+      <td > {{abs?.subject?.name}} </td>
       <td >{{ToDate(abs?.start)|date:'h:mm a'}}</td>
       <td >{{ToDate(abs?.end)|date:'h:mm a'}}</td>
       <td >{{date(abs?.date)| date:'fullDate'}}</td>
       <td>
      <a  class="delete"><i class="fas fa-trash-alt"></i></a>
-     <a     class="edit"><i (click)="date()" class="fas fa-user-edit"></i></a>
+     <a   class="edit"><i class="fas fa-edit"></i></a>
     </td>
-     
 
 
-    
-      
-  
+
+
+
+
     </tr>
 
-  
+
   </table>
 
 

@@ -1,8 +1,34 @@
 .fullheight {
     height: 100%;
   }
-  
+  .date{
+    text-align: left;
+  font-size:24px;
+  color: black
+  }
+
+
   .xc {
     display: flex;
     align-items: center;
+  }
+  ion-toolbar{
+    text-align: center;
+
+
+
+  }
+  .center{
+    text-align: center;
+  font-size:24px;
+  color: black
+  }
+
+
+  .file{
+    text-align: right;
+    font-size:32px;
+    color: #E34724;
+
+
   }

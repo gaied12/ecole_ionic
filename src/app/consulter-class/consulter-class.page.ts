@@ -2,7 +2,7 @@ import { Class } from 'src/app/Model/class';
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../service-student/student.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { ClassService } from '../class-service/class.service';
 
 @Component({
@@ -13,7 +13,8 @@ import { ClassService } from '../class-service/class.service';
 export class ConsulterClassPage implements OnInit {
  level:any[]=[];
 
-  constructor(private service:StudentService,private router:Router,private alert:AlertController,private classervice:ClassService ) {
+  constructor(private service:StudentService,private router:Router,private alert:AlertController,private classervice:ClassService,private menu:MenuController) {
+    this.menu.enable(true,'second');
 
   }
 
