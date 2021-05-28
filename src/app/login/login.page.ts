@@ -88,7 +88,9 @@ this.menu.close('prof');
 
   }
   auth(){
-    console.log(this.fL.get('email').hasError('Invalid'))
+    if(this.fL.invalid){
+      return;
+    }
     this.login.auth(this.fL.get('email').value,this.fL.get('password').value).subscribe(res =>{
       console.log(res)
       if(res.code ==='98'){

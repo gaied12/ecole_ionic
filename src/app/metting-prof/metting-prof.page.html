@@ -10,58 +10,33 @@
     </ion-toolbar>
 
 
-    <div  style="overflow-x:auto">
-			<div class="table-responsive">
-				<div class="table-wrapper">
-					<div class="table-title">
-						<div class="row">
-              </div>
+
               <ion-item>
-                <ion-label>choisir une Classe</ion-label>
+                <ion-label>choisir une classe</ion-label>
                 <ion-select [(ngModel)]="levelId" (ngModelChange)="serachByLevel($event)" >
                     <ion-select-option [value]="level.id" *ngFor="let level of  listofLevel">{{level.name}}
                     </ion-select-option>
                 </ion-select>
             </ion-item>
-          </div>
-
-
-
-					<table class="table table-striped table-hover table-bordered" scrollX="true">
-						<thead>
-							<tr>
-                <th> nom de l'élève</th>
-                <th>Classe </th>
-
-                <th>Nom de Parent </th>
-                <th>Date</th>
-                <th>Heure</th>
-                <th>Filtrer</th>
-
-
-							</tr>
-						</thead>
-						<tbody>
-							<tr  *ngFor="let met of  filterlist">
-                <td>{{ met?.son?.firstName}} {{ met?.son?.lastName}}</td>
-                <td>{{ met?.son?.level?.name }}</td>
-                <td>{{ met?.parent?.firstName}} {{ met?.parent?.lastName}}</td>
-                <td>{{ met?.date}} </td>
-                <td>{{ met?.time}} </td>
-                <td>
-                  <a class="add" title="Confirmer Rendez-vous"  data-toggle="tooltip" > <i (click)="accept(met?.id)" class="fas fa-check"></i> </a>
-                  <a class="delete"  title="Annuler Rendez-vous" data-toggle="tooltip"><i (click)="cancel(met?.id)"class="fas fa-times"></i> </a>
-           </td>
+            <ion-card  *ngFor="let met of  filterlist" [style.border-top]="card()">
+              <h6 >Nom de l'élève : {{ met?.son?.firstName}} {{ met?.son?.lastName}} </h6>
+              <h6 >Classe : {{ met?.son?.level?.name }} </h6>
+              <h6 >Nom du parent : {{ met?.parent?.firstName}} {{ met?.parent?.lastName}} </h6>
+              <h6 >Date  : {{ met?.date}} </h6>
+              <h6 >Heure : {{time(met.time ) | date:'h:mm a ' }} </h6>
+              <h6 >Action :
+                 <a class="add" title="Confirmer Rendez-vous"  data-toggle="tooltip" > <i (click)="accept(met?.id)" class="fas fa-check"></i> </a>
+                 &nbsp;&nbsp;&nbsp;&nbsp;  <a class="delete"  title="Annuler Rendez-vous" data-toggle="tooltip"><i (click)="cancel(met?.id)"class="fas fa-times"></i> </a>
+              </h6>
 
 
 
 
 
 
+            </ion-card>
 
-                </tr>
-                </tbody>
-                </table>
-                </div>
-                </div>
-                </div>
+
+
+
+                </ion-content>

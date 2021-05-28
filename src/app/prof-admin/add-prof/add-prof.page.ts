@@ -31,7 +31,7 @@ listLevels:any[]=[]
    async add() {
 
     const alert = await this.alert.create({
-      message: 'vous voulez Ajouter cet  Ensignant',
+      message: ' voulez vous Ajouter cet  Ensignant',
       buttons: [
         {text:'Confirmer',handler: () => {
 
@@ -60,8 +60,8 @@ this.addProf()  ;}
     console.log(this.fP.value)
 
    this.auth.addProf(this.fP.value).subscribe(result=>{
-      console.log(result)
-    //  this.router.navigate(['/consult-prof'])
+      console.log(result);
+      window.location.reload();
 
 
 

@@ -43,9 +43,18 @@ stud:any;
 
     }
     else{
-      return "assets/images/user.jpg"
+      return "assets/images/stud.png"
     }
 
   }
+
+card(){
+
+  return '8px solid #7f8c8d' ;
+}
+
+
+
+
 
 }

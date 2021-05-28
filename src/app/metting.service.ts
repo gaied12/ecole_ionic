@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 
 export class MettingService {
   base_url= environment.base_url;
+  private idStud= <BehaviorSubject<string>>new BehaviorSubject(null);
+
 
   constructor(private http: HttpClient) { }
   addMetting(data:any):Observable<any>{
@@ -38,5 +40,13 @@ export class MettingService {
     return this.http.get<any[]>(this.base_url+'all/metting/parent',{params:params});
 
   }
+  setStud(x:string){
+    this.idStud.next(x);
+   }
+   getStud(){
+     return this.idStud.asObservable();
+
+   }
+
 
 }

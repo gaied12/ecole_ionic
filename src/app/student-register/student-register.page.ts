@@ -23,7 +23,6 @@ export class StudentRegisterPage implements OnInit {
 
 
   constructor(private fb:FormBuilder,private service:StudentService,private alert:AlertController,private menu:MenuController,private route:Router) {
-    this.menu.enable(false,'first');
     this.menu.enable(true,'second');
         this.fStudent=this.fb.group({
       aclass : ['', Validators.compose([

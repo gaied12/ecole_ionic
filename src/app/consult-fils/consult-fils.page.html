@@ -14,7 +14,7 @@
         class="fileInput"/>
        <label for="file">
 
-        <a [routerLink]="['/profil-stud',son?.id]"><ion-img  *ngIf="son?.imageUser==null" src="assets/images/user.jpg"  class="ion-align-self-end" title="change me"></ion-img></a>
+        <a [routerLink]="['/profil-stud',son?.id]"><ion-img  *ngIf="son?.imageUser==null" src="assets/images/stud.png"  class="ion-align-self-end" title="change me"></ion-img></a>
         <a [routerLink]="['/profil-stud',son?.id]"> <ion-img  *ngIf="son?.imageUser!==null" [src]="getImg(son?.imageUser?.picByte)"  class="img" title="change me" ></ion-img></a></label>
 
 
@@ -24,8 +24,7 @@
     </div>
     <ion-item>
 
-
-<h6> coordonnées  </h6>
+      <img src="assets/images/identification.png">    <a [routerLink]="['/profil-stud',son?.id]">  <h6> Coordonnées  </h6></a>
 
     </ion-item>
 
@@ -43,16 +42,20 @@
 
       </ion-item>
       <ion-item>
-      <a [routerLink]="['/absence-stud',son?.id]"> <h6>Absences</h6></a>
+        <img src="assets/images/absent.png">     <a [routerLink]="['/absence-stud',son?.id]"> <h6>Absences</h6></a>
 
       </ion-item>
       <ion-item>
-        <img src="assets/images/file.png" (click)="down(son?.level?.timeTable?.file?.fileUrl)">  <h6>Emploi de Temps </h6>
+        <img src="assets/images/file.png" (click)="down(son?.level?.timeTable?.file?.fileUrl)">  <h6>Emploi du Temps </h6>
       </ion-item>
       <ion-item>
         <img src="assets/images/meeting.png">  <a [routerLink]="['/metting-parent',son?.level?.id,son?.id]"> <h6>Rendez-vous </h6></a>
 
         </ion-item>
+        <ion-item>
+          <img src="assets/images/mission.png">    <a [routerLink]="['/all-result',son?.id]"> <h6>Résultats</h6></a>
+
+          </ion-item>
     </ion-card>
 
     </ion-content>

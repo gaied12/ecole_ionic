@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  base_url :'http://192.168.122.1:3030/',
+  base_url :'http://ecole-epi.herokuapp.com/',
 
 };
 

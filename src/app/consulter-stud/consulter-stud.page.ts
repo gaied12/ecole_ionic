@@ -53,6 +53,7 @@ export class ConsulterStudPage implements OnInit {
 
   StudbyLevel(){
     this.service.getStudents(this.clasId).subscribe(res=> {
+      console.log(res);
       this.students = res;
 
 

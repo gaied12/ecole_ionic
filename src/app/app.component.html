@@ -14,34 +14,34 @@
 
     <ion-content>
       <ion-card text-center class="hide-card">
-        <img src="assets/images/user.jpg" class="custom-avatar"/>
+        <img [src]="imageUser(img)" class="custom-avatar"/>
         <h2></h2>
 
         <hr>
     </ion-card>
 
       <ion-list scrollY="true">
-        <ion-item >
+        <ion-item (click)="close()" >
           <a routerLink='note-parent'><p> <img src="assets/images/newspaper.png" />
             Actualités</p> </a>
         </ion-item>
-        <ion-item >
+        <ion-item (click)="close()">
           <a routerLink='/fils-selection'><p> <img src="assets/images/children.png" />
           Fils</p> </a>
         </ion-item>
 
-        <ion-item >
+        <ion-item  (click)="close()" >
           <a [routerLink]="['/profil',idUser]"><p> <img src="assets/images/profile.png" />
            Profil</p> </a>
         </ion-item>
-        <ion-item >
+        <ion-item (click)="close()">
           <a routerLink='/logout'><p> <img src="assets/images/logout.png" />
             Déconnexion</p> </a>
         </ion-item>
         </ion-list>
     </ion-content>
   </ion-menu>
-  <ion-menu class="my-custom-menu" maxEdgeStart="100" side="start" swipeGesture="true" menuId="second"
+  <ion-menu class="my-custom-menu" maxEdgeStart="100" side="start" swipeGesture="true" menuId="second" auto-hide="true"
   content-id="main-content" (ionDidOpen)="ionDidOpen($event)" (ionDidClose)="ionDidClose($event)">
   <ion-header class="menu-header">
     <ion-toolbar translucent>
@@ -59,40 +59,34 @@
 
     <ion-list scrollY="true">
 
-      <ion-item >
+      <ion-item (click)="close()">
 
        <a  routerLink='student-register'> <p><img src="assets/images/student.png" /> ELEVES  </p> </a>
       </ion-item>
-      <ion-item >
+      <ion-item  (click)="close()">
         <a routerLink='consulter-class'>
 
           <p> <img src="assets/images/class.png" />
          CLASSE</p> </a>
       </ion-item>
-      <ion-item >
+      <ion-item (click)="close()">
        <a routerLink='/consult-prof'><p> <img src="assets/images/teacher.png" />
         ENSEIGNANT</p> </a>
           </ion-item>
-          <ion-item >
+          <ion-item (click)="close()" >
             <a routerLink="/consult-notes"><p> <img src="assets/images/news.png" />
               ACTUALITES</p> </a>
                </ion-item>
-               <ion-item >
-                <a><p> <img src="assets/images/notification.png" />
+               <ion-item (click)="close()" >
+                <a [routerLink]="['/notif']"><p> <img src="assets/images/notification.png" />
                   NOTIFICATIONS</p> </a>
                    </ion-item>
-                   <ion-item >
+                   <ion-item  (click)="close()">
                    <a routerLink='/logout'><p> <img src="assets/images/logout.png" />
                     Déconnexion</p> </a>
                     </ion-item>
     </ion-list>
-    <ion-item>
-      <div class="center">
-        <ion-button  shape="round">
-          Close
-        </ion-button>
-      </div>
-    </ion-item>
+
   </ion-content>
 </ion-menu>
 <ion-menu class="my-custom-menu" maxEdgeStart="100" side="start" swipeGesture="true" menuId="prof"
@@ -104,7 +98,7 @@ content-id="main-content" (ionDidOpen)="ionDidOpen($event)" (ionDidClose)="ionDi
 </ion-header>
 <ion-content>
   <ion-card text-center class="hide-card">
-  <img src="assets/images/prof.png" class="custom-avatar"/>
+  <img  [src]="imageUser(img)" class="custom-avatar"/>
   <h2> </h2>
 
   <hr>
@@ -112,7 +106,7 @@ content-id="main-content" (ionDidOpen)="ionDidOpen($event)" (ionDidClose)="ionDi
 
 
   <ion-list scrollY="true">
-    <ion-item >
+    <ion-item (click)="close()">
       <a routerLink="/note-parent"><p> <img src="assets/images/news.png" />
         ACTUALITES</p> </a>
          </ion-item>
@@ -121,18 +115,18 @@ content-id="main-content" (ionDidOpen)="ionDidOpen($event)" (ionDidClose)="ionDi
 
      <a routerLink="/consult-emp-prof" > <p><img src="assets/images/calendar.png" />Emploi de temps</p> </a>
     </ion-item>
-    <ion-item >
+    <ion-item  (click)="close()">
       <a [routerLink]="['/metting-prof',idUser]">
 
         <p> <img src="assets/images/meet.png"/>
        Rendez-vous</p> </a>
     </ion-item>
-    <ion-item >
+    <ion-item  (click)="close()">
       <a [routerLink]="['/profil',idUser]"><p> <img src="assets/images/profile.png" />
        Profil</p> </a>
     </ion-item>
 
-                 <ion-item >
+                 <ion-item  (click)="close()">
                  <a routerLink='/logout'><p> <img src="assets/images/logout.png" />
                   Déconnexion</p> </a>
                   </ion-item>

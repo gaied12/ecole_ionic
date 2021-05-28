@@ -22,13 +22,13 @@ export class AddClassPage implements OnInit {
   ngOnInit() {
     console.log(this.fLevel.value);
   }
-  
+
   async add() {
     const alert = await this.alert.create({
       cssClass: 'my-custom-class',
       header: 'Ajouter',
       subHeader: '',
-      message: 'vous voulez ajouter ' +  this.fLevel.get('level').value,
+      message: ' Voulez vous ajouter cette classe ' ,
       buttons: [
         {text:'Confirmer',handler: () => {
 
@@ -40,7 +40,7 @@ this.addClass() ;  }
     });
 
     await alert.present();
-  }  
+  }
   addClass(){
     console.log(this.fLevel.get('level').hasError('required'));
 console.log(this.fLevel.get('level').value);

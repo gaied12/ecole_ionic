@@ -1,10 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Emploi de temps </ion-title>
+    <ion-title>Emploi du temps </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="this.emp!==null;else other_content" >
   <ion-toolbar color="light">
     <div class="date">{{datePub| date:'MMM d, y'	}}</div>
     </ion-toolbar>
@@ -21,3 +22,10 @@
 
 
     </ion-card>
+  </div>
+  <ng-template #other_content >
+    <ion-toolbar color="light">
+      <div class="date">Votre Emploi du temps est inaccessible pour le moment</div>
+      </ion-toolbar>
+
+  </ng-template>

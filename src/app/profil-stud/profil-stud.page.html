@@ -6,13 +6,12 @@
 
 <ion-content>
   <ion-card>
-  <input
-  type="file"
-  (change)="changeImg($event)"
-  name="file" id="file"class="fileInput"/>
+
  <label for="file">
    <div  class="vertical-center">
-   <ion-img [src]="getImg(stud?.imageUser?.picByte)" class="img" ></ion-img>
+   <ion-img *ngIf= "this.url" class="img" [src]="getImg(this.url)" ></ion-img>
+   <ion-img  *ngIf= "!this.url" class="img" src="assets/images/stud.png" ></ion-img>
+
   </div>
    </label>
    <ion-item>
@@ -24,8 +23,12 @@
    <ion-item>
 
 
-    <h6>    Inscrit en {{stud?.level?.name}}   </h6>
+    <h6>   Inscrit en {{stud?.level?.name}}   </h6>
 
+        </ion-item>
+        <ion-item>
+        <input
+        type="file"  (change)="changeImg($event)" name="file"  accept="image/png, image/jpeg"/>
         </ion-item>
   </ion-card>
 

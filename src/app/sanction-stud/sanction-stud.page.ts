@@ -41,6 +41,10 @@ export class SanctionStudPage implements OnInit {
       return "assets/images/user.jpg" ;
     }
   }
+  card(){
+
+    return '8px solid #7f8c8d' ;
+  }
 
 
 

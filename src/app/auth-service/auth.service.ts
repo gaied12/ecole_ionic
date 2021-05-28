@@ -54,5 +54,20 @@ export class AuthService {
 
 
   }
+  updateUser(data:any):Observable<any>{
+    let formData=new FormData();
+    formData.append('id',data.id);
+
+    formData.append('image',data.file);
+    formData.append('fName',data.firstName);
+    formData.append('lName',data.lastName);
+    formData.append('pNum',data.phoneNum);
+    formData.append('email',data.email);
+
+
+
+    return this.http.post<any>(this.base_url+'update/user/',formData)
+
+  }
 
 }

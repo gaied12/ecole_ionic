@@ -12,7 +12,7 @@
       <ion-segment-button>
 		Prendre Rendez-vous
     </ion-segment-button>
-  <ion-segment-button (click)="navigate()" >
+  <ion-segment-button [routerLink]="['/consult-metting-parent',idParent]">
 
 
       Consulter Rendez-vous
@@ -26,9 +26,22 @@
   <ion-toolbar color="light">
     <div class="date">Rendez-vous</div>
     </ion-toolbar>
+    <ion-list>
+      <ion-item>
+        <div class="vertical-center">
+          <ion-img [src]="getImg(stud?.imageUser?.picByte)" class="img" ></ion-img>
+        </div>
+
+
+        <div><h6> Matricule: {{stud?.id}}</h6><h6>Nom et Prenom: {{stud?.lastName}} {{stud?.firstName}} </h6></div>
+
+
+        </ion-item>
+
+    </ion-list>
    <form [formGroup]="fM">
     <ion-item>
-      <ion-label position="floating">Choisir un date</ion-label>
+      <ion-label position="floating">Choisir une date</ion-label>
       <ion-datetime displayFormat="MMM DD, YYYY" formControlName="date" ></ion-datetime>
     </ion-item>
     <ion-item>
@@ -36,7 +49,7 @@
       <ion-datetime displayFormat="HH:mm A" formControlName="time" ></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Choisir un Enseignant</ion-label>
+      <ion-label position="floating">Choisir un enseignant</ion-label>
       <ion-select formControlName="profId">
 
         <ion-select-option *ngFor="let prof of profs"[value]="prof.id">{{prof.firstName}} {{prof.lastName}}</ion-select-option>

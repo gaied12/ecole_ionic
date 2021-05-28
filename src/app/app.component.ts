@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   Name:string;
   user:any;
+  img:any;
   idUser:any;
   logged:boolean=false;
 
@@ -53,13 +54,46 @@ export class AppComponent {
     this.service.getUser(user.id).subscribe(user => {
       this.user = user;
       this.idUser = user.id;
-
+      this.img=this?.user?.imageUser?.picByte;
+console.log(this.user);
 
     })
   }
 
 
+
   }
+  imageUser(x:any){
+if(this.logged==false){
+  return ;
+}
+    var user=  JSON.parse(localStorage.getItem('user'));
+
+    if(user.role=="PARENT"){
+      if(x==null){
+        return 'assets/images/user.jpg'
+      }
+
+      else{
+        return "data:image/jpeg;base64,"+x;
+
+      }
+
+    }
+    if(user.role=="TEACHER"){
+      if(x==null){
+        return 'assets/images/prof.png'
+      }
+
+      else{
+        return "data:image/jpeg;base64,"+x;
+
+      }
+
+    }
+
+  }
+
 
   initializeApp() {
 
@@ -113,6 +147,8 @@ export class AppComponent {
 
 
     }
+    close() {
+this.menu.close() ;   }
 
 
 

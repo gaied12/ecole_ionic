@@ -14,9 +14,9 @@ export class VerifyComptePage implements OnInit {
   fR:FormGroup;
   code:string;
 
-  constructor(private router: ActivatedRoute,private rou:Router,private auth:AuthService,private alert:AlertController) { 
+  constructor(private router: ActivatedRoute,private rou:Router,private auth:AuthService,private alert:AlertController) {
 
-    
+
   }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ console.log(this.data);
   }
   async info() {
     const alert = await this.alert.create({
-     
+
       message: 'votre code est incorrect',
       buttons: [
         {text:'ok',handler: () => {
@@ -38,7 +38,7 @@ console.log(this.data);
 
  ;}
 },
-      
+
     ]
     });
 
@@ -51,7 +51,7 @@ console.log(this.data);
 console.log(x);
 
 
-  
+
    this.auth.addParent(x).subscribe(result => {
      if(result.code === '99999'){
        this.info();
@@ -60,8 +60,8 @@ console.log(x);
      }
      else{
       localStorage.setItem('user',JSON.stringify(result) )
+      window.location.href = '/home-parent';
 
-       this.rou.navigate(['/home-parent']);
      }
 
 
@@ -72,7 +72,7 @@ console.log(x);
   }
   genCode(){
     window.location.reload();
-      
+
   }
   getData():any{
    return localStorage.getItem('dataReq');

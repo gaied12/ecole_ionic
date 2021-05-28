@@ -204,6 +204,22 @@ const routes: Routes = [
   {
     path: 'profil/:id',
     loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
+  },
+  {
+    path: 'notif',
+    loadChildren: () => import('./notif/notif.module').then( m => m.NotifPageModule)
+  },
+  {
+    path: 'add-result/:id',
+    loadChildren: () => import('./add-result/add-result.module').then( m => m.AddResultPageModule)
+  },
+  {
+    path: 'all-result/:id',
+    loadChildren: () => import('./all-result/all-result.module').then( m => m.AllResultPageModule)
+  },
+  {
+    path: 'result',
+    loadChildren: () => import('./result/result.module').then( m => m.ResultPageModule)
   }
 ];
 

@@ -8,39 +8,39 @@
   <ion-toolbar>
 
     <ion-segment>
-       
+
           <ion-segment-button >
             <i class="fas fa-calendar-week"></i>
                  Consulter les Actualités
       </ion-segment-button>
       <a routerLink='/add-note'>
      <ion-segment-button >
-      <i class="fas fa-calendar-plus"></i>   
+      <i class="fas fa-calendar-plus"></i>
           Ajouter Actualités
       </ion-segment-button>
       </a>
-      
+
        </ion-segment>
   </ion-toolbar>
- 
+
   <div class="cards"> <a routerLink='/consult-notes'> <img src="assets/images/card-red.png" (click)="filterComu()">Communiqué</a><a routerLink='/consult-notes'><img src="assets/images/card-white.png" (click)=" fiterEvent()">Evénement</a>
-  
+
   </div>
   <ion-item>
-    <ion-label>Date de publication</ion-label>
+    <ion-label>Date de la publication</ion-label>
 
     <ion-datetime [(ngModel)]=x displayFormat="MM-DD-YYYY" (ngModelChange)="search()"></ion-datetime>
 
-  
+
   </ion-item>
 
    <ion-card *ngFor="let note of filterNotes" [style.border-top]="card(note.type)">
     <div class="card-title">{{note.title}}</div>
- 
+
     <a [routerLink]="['/note',note.id]"> <div class="arr">  <i [style.color]="i(note.type)"class="fas fa-arrow-circle-right"></i></div></a>
   </ion-card>
 
 
- 
+
 
 </ion-content>

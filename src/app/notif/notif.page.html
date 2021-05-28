@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-content>
+    <form [formGroup]="fN" >
+      <ion-item lines="full">
+        <ion-label position="floating">Texte de la notification</ion-label>
+        <ion-textarea type="text" formControlName="msg"></ion-textarea>
+
+<p class="error" *ngIf="this.fN.get('msg').hasError('required') && this.fN.get('msg').touched"> Remplir le champ</p>
+      </ion-item>
+
+    <ion-list style="text-align:center">
+
+    <a [routerLink]="['/notif']"><img type="submit" (click)="AlertConfirm()"src="assets/images/checked.png"></a>
+      </ion-list>
+
+
+      </form>
+
+
+</ion-content>

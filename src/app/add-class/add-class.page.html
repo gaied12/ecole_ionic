@@ -10,7 +10,7 @@
     <ion-segment>
       <a routerLink='/consulter-class'>
         <ion-segment-button >
-   <i class='fas fa-chalkboard-teacher'></i> 
+   <i class='fas fa-chalkboard-teacher'></i>
    Consulter les classes
     </ion-segment-button>
   </a>
@@ -18,29 +18,29 @@
     <i class='fas fa-chalkboard-teacher'></i>
      Ajouter Classe
     </ion-segment-button>
-    
-     
+
+
   </ion-segment>
   </ion-toolbar>
-  
+
   <form [formGroup]="fLevel">
-  
-  
-  
-    
+
+
+
+
     <ion-item lines="full">
-      <ion-label position="floating">Nom de classe</ion-label>
+      <ion-label position="floating">Nom de la classe</ion-label>
       <ion-input type="text" formControlName="level"></ion-input>
     </ion-item>
-   
-   
+
+
   <ion-list style="text-align:center">
-  
+
     <a routerLink="/add-class"><img type="submit" (click)="add()" src="assets/images/checked.png"></a>
 
 
   </ion-list>
-  
+
   </form>
 
 

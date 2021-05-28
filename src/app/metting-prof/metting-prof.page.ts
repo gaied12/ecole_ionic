@@ -15,11 +15,10 @@ export class MettingProfPage implements OnInit {
   listofLevel:any[]=[];
   filterlist:any[]=[];
   levelId:any;
+  times:string;
 
   constructor(private menu:MenuController, private levelservice:StudentService,private mettService: MettingService,private ro:ActivatedRoute) {
     this.menu.enable(true,'prof');
-    this.menu.enable(false,'first');
-    this.menu.enable(true,'secons');
 
   }
 
@@ -61,6 +60,24 @@ this.mettService.accptMett(x).subscribe(data =>{
     })
 
   }
+  time(x:any){
+    var date = new Date();
+
+   let table=x.split(':');
+   console.log(table)
+
+
+   date.setHours( table[0]);
+   date.setMinutes(   table[1]);
+    return date ;
+
+  }
+  card(){
+
+    return '8px solid #7f8c8d' ;
+  }
+
+
 
 
 }

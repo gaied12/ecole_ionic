@@ -12,6 +12,7 @@ export class ProfilStudPage implements OnInit {
   stud:any
   id:any;
   file:File;
+  url:any;
 
   constructor(private serviceStud:StudentService,private rou:ActivatedRoute, private menu: MenuController) {
     this.menu.enable(true,'first')
@@ -23,18 +24,22 @@ export class ProfilStudPage implements OnInit {
 
     this.serviceStud.getStud(this.id).subscribe(res =>{
       this.stud=res;
+      this.url=this.stud?.imageUser?.picByte;
+      console.log(this.url);
+
+
     })
   }
   getImg(x:any){
-    if(x!==null){
-      return "data:image/jpeg;base64,"+x;
+    return "data:image/jpeg;base64,"+x;
 
 
-    }else{
-      return "assets/images/user.jpg" ;
-    }
+
+
+
+
   }
-  changeImg(event){
+  /*changeImg(event){
     this.file=event.target.files[0];
     console.log(this.file)
     this.serviceStud.updImg(this.file,this.id).subscribe(res =>{
@@ -42,6 +47,21 @@ export class ProfilStudPage implements OnInit {
 
 
     })
+  }*/
+  changeImg(event){
+    let reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+       this.file = event.target.files[0];
+       console.log(this.file)
+      reader.readAsDataURL(this.file);
+      reader.onload = () => {
+        this.url = reader.result;
+    this.serviceStud.updImg(this.file,this.id).subscribe(res=>{
+
+          window.location.reload();
+        })
+      };
+    }
   }
 
 }

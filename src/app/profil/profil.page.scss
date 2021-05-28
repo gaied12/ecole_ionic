@@ -9,13 +9,15 @@ div{
 
 }
 .img{
-  max-width: 100%;
-  height: auto;
+  position: relative;
 
   margin: auto;
   display: block;
   align-items: center;
-  margin:auto;
+  width: 160px;
+  height:160px;
+  border-radius: 50%;
+
 
 
 }

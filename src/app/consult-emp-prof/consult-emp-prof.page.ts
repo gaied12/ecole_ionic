@@ -14,8 +14,7 @@ export class ConsultEmpProfPage implements OnInit {
 
   constructor(private menu:MenuController,private service:AuthService, private datepipe:DatePipe) {
     this.menu.enable(true,'prof');
-    this.menu.enable(false,'first');
-    this.menu.enable(false,'second');
+
 
    }
    date(x:any){
@@ -33,7 +32,7 @@ return date;
     this.service.getUser(user.id).subscribe(res => {
       this.emp=res.timeTable;
       console.log(this.emp);
-      this.datePub=this.date(this.emp.file.Datecreation);
+      this.datePub=this.date(this?.emp?.file?.Datecreation);
 
 
 

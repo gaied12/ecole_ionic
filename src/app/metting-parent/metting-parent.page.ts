@@ -18,6 +18,7 @@ fM:FormGroup;
 idParent:any;
 idStud:any;
 idLevel:any;
+stud:any;
 
   constructor(private service:StudentService,private rou:ActivatedRoute,private fb:FormBuilder,private pipe:DatePipe,private serviceMeet:MettingService,private alert:AlertController,private menu:MenuController,private router:Router) {
  this.menu.enable(true,'first');
@@ -37,9 +38,15 @@ idLevel:any;
 
 
     })
+this.serviceMeet.setStud(this.idStud);
+
    }
 
   ngOnInit() {
+    this.service.getStud(this.idStud).subscribe(res=>{
+
+      this.stud=res;
+    })
     this.service.allProfbyLevel(+this.rou.snapshot.paramMap.get('id')).subscribe(data=>{
 
       this.profs=data;
@@ -66,15 +73,11 @@ data.levelId=+this.rou.snapshot.paramMap.get('id');
     const alert = await this.alert.create({
       cssClass: 'my-custom-class',
       subHeader: '',
-      message: 'vous voulez Confirmer cet Rendez-vous ',
+      message: 'Voulez vous Confirmer cet rendez-vous ',
       buttons: [
         {text:'Confirmer',handler: () => {
           this.add();
-          window.location.reload();
-
-
-
-  }
+          window.location.reload();}
   },
         {text:'Annuler'},
 
@@ -91,8 +94,18 @@ data.levelId=+this.rou.snapshot.paramMap.get('id');
 
 
     }
+
     navigate(){
       this.router.navigateByUrl(`/consult-metting-parent/${this.idParent}`, { state: { idStud:this.idStud , idLevel:this.idLevel } });
+    }
+    getImg(x:any){
+      if(x!==null){
+        return "data:image/jpeg;base64,"+x;
+
+
+      }else{
+        return "assets/images/stud.png" ;
+      }
     }
 
 }

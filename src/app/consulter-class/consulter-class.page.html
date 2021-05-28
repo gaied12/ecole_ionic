@@ -31,10 +31,10 @@
 					<table class="table table-striped table-hover table-bordered" scrollX="true">
 						<thead>
 							<tr>
-								<th>Class Nom </th>
+								<th>Classe  </th>
 								<th>Nombre des éléves</th>
-								<th>Emploi de temps </th>
-								<th> Configuration Classe      </th>
+								<th>Emploi du temps </th>
+								<th> Gérer Classe      </th>
 
 							</tr>
 						</thead>
@@ -45,8 +45,8 @@
 
 								<td>
 
-							<a routerLink='/consulter-class' class="delete" title="aucun emploi de temps" data-toggle="tooltip" *ngIf="this.leve.timeTable==null"><i class="fas fa-minus-circle"></i> </a>
-							<a [routerLink]="['/emp-class',leve.id]"class="add" title="Ajouter un emploi de temps a cette classe" data-toggle="tooltip" *ngIf="this.leve.timeTable==null"><i class="fas fa-plus"></i></a>
+							<a routerLink='/consulter-class' class="delete" title="aucun emploi du temps" data-toggle="tooltip" *ngIf="this.leve.timeTable==null"><i class="fas fa-minus-circle"></i> </a>
+							<a [routerLink]="['/emp-class',leve.id]"class="add" title="Ajouter un emploi du temps a cette classe" data-toggle="tooltip" *ngIf="this.leve.timeTable==null"><i class="fas fa-plus"></i></a>
 
 
 									<a [routerLink]="['/consult-emp',leve.timeTable.id]" class="edit" title="Info"  *ngIf="this.leve.timeTable!==null" data-toggle="tooltip"><i class="fas fa-info"></i></a>

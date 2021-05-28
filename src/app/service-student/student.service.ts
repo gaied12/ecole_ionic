@@ -111,6 +111,21 @@ addSon(userId:any,studId:any):Observable<any>{
 
 
 }
+addResult(data:any):Observable<any>{
+  let formData=new FormData();
+  formData.append('file',data.file);
+  formData.append('title',data.title);
+
+  formData.append('studId',data.mat);
+
+
+  return this.http.post<any>(this.base_url+'add/result',formData);
+}
+allResults(id:string):Observable<any[]> {
+  return this.http.get<any[]>(this.base_url+'all/result/'+`${id}`);
+
+
+}
 
 
 

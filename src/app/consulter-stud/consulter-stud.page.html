@@ -26,7 +26,7 @@
         </div>
         <div *ngIf="this.level!=null" class="errors" [ngStyle]="{'color':  style(this.students.length),'text-align':'center'}">{{numStud(this.students.length) }} éléves inscrits en {{level?.name}} </div>
 
-  <table *ngIf="this.students.length!=0 "class="table table-striped table-hover table-bordered"   >
+  <table *ngIf="this.students.length!=0 "class="table table-striped table-hover table-bordered" >
 
 
 
@@ -34,15 +34,14 @@
     <tr *ngIf="this.students.length!=0" >
 
       <th>Matricule</th>
-      <th>nom et prenom</th>
-      <th>date de Naissance</th>
+      <th>Nom et Prenom</th>
+      <th>Date de naissance</th>
       <th>Sexe</th>
       <th>Parent</th>
-      <th>Configuration Eleve
+      <th>Gérer Eleve
         </th>
       <th>Absence</th>
-      <th>Retard</th>
-      <th>Moyenne Génerale</th>
+      <th>Résultat</th>
 
 
 
@@ -66,8 +65,8 @@
       <a [routerLink]="['/all-abs',stud.id]"  class="view"><i class="fas fa-info"></i></a>
       <a [routerLink]="['/add-abs',stud.id]"   class="add"><i class="fas fa-plus"></i></a>
      </td>
-     <td> </td>
-     <td> </td>
+     <td>   <a [routerLink]="['/all-result',stud.id]"  class="view"><i class="fas fa-info"></i></a>
+      <a [routerLink]="['/add-result',stud.id]"   class="add"><i class="fas fa-plus"></i></a></td>
 
 
 

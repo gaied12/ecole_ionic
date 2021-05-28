@@ -15,47 +15,23 @@
         </div>
 
 
-        <div><ion-label> Matricule: {{stud?.id}}</ion-label><br/><ion-label>Nom et Prenom: {{stud?.lastName}} {{stud?.firstName}} </ion-label></div>
+        <div><h6> Matricule: {{stud?.id}}</h6><h6>Nom et Prenom: {{stud?.lastName}} {{stud?.firstName}} </h6></div>
 
 
         </ion-item>
 
     </ion-list>
 
-    <div  style="overflow-x:auto">
-			<div class="table-responsive">
-				<div class="table-wrapper">
-					<div class="table-title">
-						<div class="row">
-							</div>
-					</div>
-
-					<table class="table table-striped table-hover table-bordered" scrollX="true">
-						<thead>
-							<tr>
-								<th> Matiere</th>
-                <th>date de séance</th>
-                <th>Debut de séance</th>
-                <th>Fin de séance</th>
 
 
-							</tr>
-						</thead>
-						<tbody>
-							<tr  *ngFor="let abs of listAbsence">
-								<td>{{abs?.subject?.name}}</td>
-                <td>{{abs?.date  | date: 'EEEE, MMMM d, y'}}</td>
-                <td>{{getdate(abs?.start) | date: 'h:mm a'	}}</td>
-                <td>{{getdate(abs?.end) | date: 'h:mm a'	}}</td>
-
-
-                </tr>
-                </tbody>
-                </table>
-                </div>
-                </div>
-                </div>
+<ion-card *ngFor="let abs of listAbsence" [style.border-top]="card()">
+  <h6 >Matiere : {{abs?.subject?.name}} </h6>
+  <h6 >Date de la séance : {{abs?.date  | date: 'EEEE, MMMM d, y'}} </h6>
+  <h6 >Debut de la séance : {{getdate(abs?.start) | date: 'h:mm a'	}} </h6>
+  <h6 >Fin de la séance : {{getdate(abs?.end) | date: 'h:mm a'	}} </h6>
 
 
 
+
+</ion-card>
 </ion-content>
